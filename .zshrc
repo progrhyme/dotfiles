@@ -37,3 +37,4 @@ SPROMPT=$tmp_sprompt
 alias ls='ls --show-control-chars --color=auto'
 alias ll='ls -l'
 alias la='ls -a'
+alias vi='vim'
