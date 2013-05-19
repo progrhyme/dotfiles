@@ -19,3 +19,7 @@ for file in ${DOTFILES[@]}; do
   fi
 done
 
+# create .zshrc.d
+if [ ! -d $HOME/.zshrc.d ]; then
+  mkdir $HOME/.zshrc.d
+fi
