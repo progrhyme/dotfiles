@@ -1,3 +1,5 @@
 [user]
 	name  = key-amb
 	email = key-amb@github.com
+[push]
+	default = simple
