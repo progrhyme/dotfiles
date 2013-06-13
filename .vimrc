@@ -17,8 +17,7 @@ set splitright
 noremap ,u <ESC>:Unite outline<Return>
 
 " window width
-set winwidth=120
-set winminwidth=60
+set winwidth=100
 
 " good width setting
 nnoremap <C-w>h <C-w>h:call <SID>good_width()<Cr>
