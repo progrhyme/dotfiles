@@ -14,7 +14,7 @@ set splitbelow
 set splitright
 
 " key mapping
-noremap ,u <ESC>:Unite outline<Return>
+noremap ,u <ESC>:Unite -vertical -winwidth=40 outline<Return>
 
 " window width
 set winwidth=100
@@ -31,12 +31,6 @@ function! s:good_width()
 endfunction
 
 " ----------------------------------------
-" for plugins
-set nocp
-filetype plugin on
-" for Align
-let g:Align_xstrlen=3
-
 " NeoBundle
 set nocompatible
 filetype off
@@ -52,3 +46,15 @@ NeoBundle 'Align'
 
 filetype plugin on
 filetype indent on
+
+" ----------------------------------------
+" for plugins
+set nocp
+filetype plugin on
+
+" for Align
+let g:Align_xstrlen=3
+
+" for Unite
+let g:unite_split_rule = 'botright'
+
