@@ -6,15 +6,19 @@ set list
 " fill white spaces instead of tab
 set expandtab
 set tabstop=4
+
+" ----------------------------------------
+" Status Line
 " show statusline always
 set laststatus=2
+" color
+highlight StatusLine term=bold cterm=bold ctermfg=black ctermbg=red
 
+" ----------------------------------------
+" Window Setting
 " window split option
 set splitbelow
 set splitright
-
-" key mapping
-noremap ,u <ESC>:Unite -vertical -winwidth=40 outline<Return>
 
 " window width
 set winwidth=100
@@ -29,6 +33,10 @@ function! s:good_width()
     vertical resize 84
   endif
 endfunction
+
+" ----------------------------------------
+" key mapping
+noremap ,u <ESC>:Unite -vertical -winwidth=40 outline<Return>
 
 " ----------------------------------------
 " NeoBundle
