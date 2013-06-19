@@ -49,6 +49,10 @@ endfunction
 " key mapping
 noremap ,u <ESC>:Unite -vertical -winwidth=40 outline<Return>
 
+" perltidy
+map ,pt <Esc>:%! perltidy -se<CR>
+map ,ptv <Esc>:'<,'>! perltidy -se<CR>
+
 " ----------------------------------------
 " NeoBundle
 set nocompatible
