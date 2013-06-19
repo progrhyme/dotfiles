@@ -44,3 +44,6 @@ if [ -d .zshrc.d ]; then
     source $file
   done
 fi
+
+# plenv
+eval "$(plenv init -)"
