@@ -12,7 +12,7 @@ set tabstop=4
 " show statusline always
 set laststatus=2
 " color
-highlight StatusLine term=bold cterm=bold ctermfg=black ctermbg=red
+highlight StatusLine term=bold cterm=bold ctermfg=black ctermbg=blue
 
 " ----------------------------------------
 " Window Setting
