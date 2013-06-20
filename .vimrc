@@ -20,6 +20,9 @@ set foldlevel=2
 
 " ----------------------------------------
 " Status Line
+set statusline=%<%f\ %m%r%h%w
+set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
+set statusline+=%=%l/%L,%c%V%8P
 " show statusline always
 set laststatus=2
 " color
