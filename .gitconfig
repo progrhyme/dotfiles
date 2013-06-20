@@ -1,5 +1,7 @@
 [user]
 	name  = key-amb
-	email = key-amb@github.com
+	email = yasutake.kiyoshi@gmail.com
 [push]
 	default = simple
+[color]
+	ui = true
