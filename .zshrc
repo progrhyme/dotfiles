@@ -38,6 +38,7 @@ alias ls='ls --show-control-chars --color=auto'
 alias ll='ls -l'
 alias la='ls -a'
 alias vi='vim'
+alias vi-s='vim -S ~/.vim.session'
 
 if [ -d .zshrc.d ]; then
   for file in `find .zshrc.d -mindepth 1`; do
