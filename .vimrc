@@ -8,6 +8,9 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+" backspace
+set backspace=indent,eol,start
+
 " syntax
 syntax on
 " modeline
