@@ -35,7 +35,7 @@ set splitbelow
 set splitright
 
 " window width
-set winwidth=100
+set winwidth=80
 
 " good width setting
 nnoremap <C-w>h <C-w>h:call <SID>good_width()<Cr>
@@ -43,14 +43,15 @@ nnoremap <C-w>l <C-w>l:call <SID>good_width()<Cr>
 nnoremap <C-w>H <C-w>H:call <SID>good_width()<Cr>
 nnoremap <C-w>L <C-w>L:call <SID>good_width()<Cr>
 function! s:good_width()
-  if winwidth(0) < 84
-    vertical resize 84
+  if winwidth(0) < 80
+    vertical resize 80
   endif
 endfunction
 
 " ----------------------------------------
 " key mapping
-noremap ,u <ESC>:Unite -vertical -winwidth=40 outline<Return>
+nnoremap ,u <ESC>:Unite -vertical -winwidth=40 outline<Return>
+nnoremap ,l :<C-u>call append(expand('.'), '')<Cr>j
 
 " perltidy
 map ,pt <Esc>:%! perltidy -se<CR>
