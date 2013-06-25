@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PROJECT=dotfiles
-DOTFILES=(.gitconfig .zshenv .zshrc .vimrc .perltidyrc)
+DOTFILES=(.gitconfig .zshenv .zshrc .vimrc .perltidyrc .screenrc)
 CMD=""
 
 cd $HOME
