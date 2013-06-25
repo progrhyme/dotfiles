@@ -19,7 +19,7 @@ set modelines=3
 " folding
 set foldmethod=indent
 set foldcolumn=3
-set foldlevel=2
+set foldlevel=10
 
 " ----------------------------------------
 " Status Line
