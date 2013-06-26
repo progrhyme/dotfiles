@@ -65,6 +65,10 @@ map ,pt <Esc>:%! perltidy -se<CR>
 map ,ptv <Esc>:'<,'>! perltidy -se<CR>
 
 " ----------------------------------------
+" use templates
+autocmd BufNewFile *.pp 0r $HOME/.vim/template/puppet-module.txt
+
+" ----------------------------------------
 " NeoBundle
 set nocompatible
 filetype off
