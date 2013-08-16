@@ -37,17 +37,29 @@ highlight StatusLine term=bold cterm=bold ctermfg=black ctermbg=blue
 set splitbelow
 set splitright
 
-" window width
+" window width/height
 set winwidth=80
+set winheight=25
 
-" good width setting
+" good width/height setting
 nnoremap <C-w>h <C-w>h:call <SID>good_width()<Cr>
 nnoremap <C-w>l <C-w>l:call <SID>good_width()<Cr>
 nnoremap <C-w>H <C-w>H:call <SID>good_width()<Cr>
 nnoremap <C-w>L <C-w>L:call <SID>good_width()<Cr>
+nnoremap <C-w>k <C-w>k:call <SID>good_height()<Cr>
+nnoremap <C-w>j <C-w>j:call <SID>good_height()<Cr>
+nnoremap <C-w>K <C-w>K:call <SID>good_height()<Cr>
+nnoremap <C-w>J <C-w>J:call <SID>good_height()<Cr>
+
 function! s:good_width()
   if winwidth(0) < 80
     vertical resize 80
+  endif
+endfunction
+
+function! s:good_height()
+  if winheight(0) < 25
+    vertical resize 25
   endif
 endfunction
 
