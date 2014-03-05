@@ -3,6 +3,7 @@ set autoindent
 set number
 " show tabs, eol, etc.
 set list
+set listchars=tab:>-,extends:<,trail:-,eol:$
 " fill white spaces instead of tab
 set expandtab
 set tabstop=4
