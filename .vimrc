@@ -119,3 +119,4 @@ let g:Align_xstrlen=3
 " for Unite
 let g:unite_split_rule = 'botright'
 
+" vim: expandtab tabstop=2 softtabstop=2 shiftwidth=2
