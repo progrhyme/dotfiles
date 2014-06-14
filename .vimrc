@@ -105,13 +105,11 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'Align'
 
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 
 " ----------------------------------------
 " for plugins
 set nocp
-filetype plugin on
 
 " for Align
 let g:Align_xstrlen=3
