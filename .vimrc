@@ -87,6 +87,10 @@ nnoremap ,l :<C-u>call append(expand('.'), '')<Cr>j
 map ,pt <Esc>:%! perltidy -se<CR>
 map ,ptv <Esc>:'<,'>! perltidy -se<CR>
 
+" US keyboard
+nnoremap ; :
+nnoremap : ;
+
 " ----------------------------------------
 " use templates
 autocmd BufNewFile *.pp 0r $HOME/.vim/template/puppet-module.txt
