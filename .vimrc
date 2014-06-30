@@ -42,6 +42,8 @@ set laststatus=2
 " color
 highlight StatusLine term=bold cterm=bold ctermfg=black ctermbg=blue
 
+set hlsearch
+
 " paste
 nnoremap ,i :<C-u>set paste<Return>i
 autocmd InsertLeave * set nopaste
