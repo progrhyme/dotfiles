@@ -90,8 +90,8 @@ nnoremap ,u <ESC>:Unite -vertical -winwidth=40 outline<Return>
 nnoremap ,l :<C-u>call append(expand('.'), '')<Cr>j
 
 " perltidy
-noremap ,pt <Esc>:%! perltidy -se<Return>
-noremap ,ptv <Esc>:'<,'>! perltidy -se<Return>
+noremap ,pt <Esc>:%! perltidy<Return>
+noremap ,ptv <Esc>:'<,'>! perltidy<Return>
 
 " US keyboard
 nnoremap ; :
