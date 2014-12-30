@@ -114,6 +114,7 @@ endif
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'Align'
+NeoBundle 'slim-template/vim-slim'
 
 filetype plugin indent on
 
