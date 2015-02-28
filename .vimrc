@@ -87,7 +87,8 @@ au VimLeave * mks! ~/.vim.session
 " ----------------------------------------
 " key mapping
 nnoremap ,u <ESC>:Unite -vertical -winwidth=40 outline<Return>
-nnoremap ,l :<C-u>call append(expand('.'), '')<Cr>j
+nnoremap ,t <ESC>:NERDTreeToggle<Return>
+nnoremap ,l :<C-u>call append(expand('.'), '')<Return>j
 
 " perltidy
 noremap ,pt <Esc>:%! perltidy<Return>
@@ -116,6 +117,9 @@ NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'Align'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'vim-jp/vim-go-extra'
+NeoBundle 'google/vim-ft-go'
 
 filetype plugin indent on
 
