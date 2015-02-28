@@ -55,8 +55,8 @@ set splitbelow
 set splitright
 
 " window width/height
-set winwidth=80
-set winheight=25
+set winwidth=20
+set winheight=5
 
 " good width/height setting
 nnoremap <C-w>h <C-w>h:call <SID>good_width()<Cr>
@@ -69,14 +69,14 @@ nnoremap <C-w>K <C-w>K:call <SID>good_height()<Cr>
 nnoremap <C-w>J <C-w>J:call <SID>good_height()<Cr>
 
 function! s:good_width()
-  if winwidth(0) < 80
-    vertical resize 80
+  if winwidth(0) < 20
+    vertical resize 20
   endif
 endfunction
 
 function! s:good_height()
-  if winheight(0) < 25
-    vertical resize 25
+  if winheight(0) < 5
+    vertical resize 5
   endif
 endfunction
 
@@ -119,7 +119,7 @@ if has('vim_starting')
 endif
 
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Align'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'kchmck/vim-coffee-script'
