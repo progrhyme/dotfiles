@@ -106,6 +106,7 @@ autocmd BufNewFile *.pp 0r $HOME/.vim/template/puppet-module.txt
 " Go
 set rtp^=$GOPATH/src/github.com/nsf/gocode/vim
 command Gorun execute "!go run %"
+au BufWritePre *.go Fmt
 
 " ----------------------------------------
 " NeoBundle
