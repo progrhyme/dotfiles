@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 ############################################################
 # Initialize
 
@@ -56,4 +58,10 @@ fi
 for t in ${TARGETS[@]}; do
   symlink $t
 done
+
+# for NeoBundle
+if [ ! -d ${VIM_DIR}/bundle ]; then
+  mkdir -p ${VIM_DIR}/bundle;
+  git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim;
+fi
 
