@@ -135,6 +135,7 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'vim-jp/vim-go-extra'
 NeoBundle 'google/vim-ft-go'
+NeoBundle 'elzr/vim-json'
 
 call neobundle#end()
 
