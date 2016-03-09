@@ -1,7 +1,12 @@
 #!/bin/bash
 
 PROJECT=dotfiles
-DOTFILES=(.gitconfig .zshenv .zshrc .vimrc .perltidyrc .screenrc)
+case $SHELL in
+  */bash) profiles=(.bashrc .git-completion.bash) ;;
+  */zsh)  profiles=(.zshenv .zshrc) ;;
+  *)      profiles=() ;;
+esac
+DOTFILES=(.gitconfig .vimrc .perltidyrc .screenrc ${profiles[*]})
 CMD=""
 
 cd $HOME
