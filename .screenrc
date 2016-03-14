@@ -39,6 +39,22 @@ defbce "on"
 attrcolor b ".I"
 
 # -------------------------------------------------------------------------
+# split windows
+bind j focus down
+bind k focus up
+bind + resize +1
+bind - resize -1
+bind = resize =
+
+# -------------------------------------------------------------------------
+# encoding shortcuts
+bind -c TO_UTF8 e encoding eucjp utf8
+bind -c TO_UTF8 s encoding sjis utf8
+bind -c TO_UTF8 u encoding utf8 utf8
+bind ' '
+bind ' ' command -c TO_UTF8
+
+# -------------------------------------------------------------------------
 # multi user
 #
 # -------------------------------------------------------------------------
