@@ -24,4 +24,11 @@ __prompt () {
 }
 PROMPT_COMMAND=__prompt
 
+# extentional settings
+if [ -d ${HOME}/.bashrc.d ]; then
+  for file in `find ${HOME}/.bashrc.d -mindepth 1`; do
+    source $file
+  done
+fi
+
 HISTTIMEFORMAT='%y/%m/%d %H:%M:%S  '
