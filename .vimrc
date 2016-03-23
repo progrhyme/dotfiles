@@ -44,8 +44,12 @@ highlight StatusLine term=bold cterm=bold ctermfg=black ctermbg=blue
 
 set hlsearch
 
+" Set map leader
+let mapleader = ","
+noremap \ ,
+
 " paste
-nnoremap ,i :<C-u>set paste<Return>i
+nnoremap <Leader>i :<C-u>set paste<Return>i
 autocmd InsertLeave * set nopaste
 
 " ----------------------------------------
@@ -86,13 +90,14 @@ au VimLeave * mks! ~/.vim.session
 
 " ----------------------------------------
 " key mapping
-nnoremap ,u <ESC>:Unite -vertical -winwidth=40 outline<Return>
-nnoremap ,t <ESC>:NERDTreeToggle<Return>
-nnoremap ,l :<C-u>call append(expand('.'), '')<Return>j
+nnoremap <Leader>u <ESC>:Unite -vertical -winwidth=40 outline<Return>
+nnoremap <Leader>t <ESC>:NERDTreeToggle<Return>
+nnoremap <Leader>l :<C-u>call append(expand('.'), '')<Return>j
 
 " perltidy
-noremap ,pt <Esc>:%! perltidy<Return>
-noremap ,ptv <Esc>:'<,'>! perltidy<Return>
+noremap <Leader>pt <Esc>:%! perltidy<Return>
+noremap <Leader>ptv <Esc>:'<,'>! perltidy<Return>
+
 
 " US keyboard
 nnoremap ; :
@@ -136,6 +141,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'vim-jp/vim-go-extra'
 NeoBundle 'google/vim-ft-go'
 NeoBundle 'elzr/vim-json'
+NeoBundleLazy 'mopp/layoutplugin.vim', { 'autoload' : { 'commands' : 'LayoutPlugin'} }
 
 call neobundle#end()
 
