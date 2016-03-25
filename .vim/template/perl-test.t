@@ -1,0 +1,1 @@
+../../submodule/Code-Templates/perl/test.t
