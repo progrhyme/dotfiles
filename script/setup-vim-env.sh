@@ -7,7 +7,7 @@ set -e
 
 PROJECT=dotfiles
 VIM_DIR=${HOME}/.vim
-TARGETS=(.vimrc .vim/ftplugin .vim/ftdetect)
+TARGETS=(.vimrc .vim/ftplugin .vim/ftdetect .vim/template)
 
 ############################################################
 # Functions
@@ -15,7 +15,7 @@ TARGETS=(.vimrc .vim/ftplugin .vim/ftdetect)
 symlink() {
   file=$1;
   link="${HOME}/$file"
-  real_file="${PROJECT}/${file}";
+  real_file="${HOME}/${PROJECT}/${file}";
 
   if [ -L $link ]; then
     echo "[ok] already linked: ${link} -> ${real_file}";
@@ -46,7 +46,7 @@ cd $HOME
 if [ -e $PROJECT ]; then
   printf "${HOME}/$PROJECT exists\n";
 else
-  ln -s gitrepos/${PROJECT};
+  ln -s ${HOME}/gitrepos/${PROJECT};
 fi
 
 # create ~/.vim
