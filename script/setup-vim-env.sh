@@ -7,7 +7,7 @@ set -e
 
 PROJECT=dotfiles
 VIM_DIR=${HOME}/.vim
-TARGETS=(.vimrc .vim/ftplugin)
+TARGETS=(.vimrc .vim/ftplugin .vim/ftdetect)
 
 ############################################################
 # Functions
