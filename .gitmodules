@@ -1,0 +1,3 @@
+[submodule "submodule/Code-Templates"]
+	path = submodule/Code-Templates
+	url = git@github.com:key-amb/Code-Templates.git
