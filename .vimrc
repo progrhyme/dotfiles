@@ -146,6 +146,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'vim-jp/vim-go-extra'
 NeoBundle 'google/vim-ft-go'
 NeoBundle 'elzr/vim-json'
+NeoBundle 'junegunn/vim-easy-align'
 NeoBundleLazy 'mopp/layoutplugin.vim', { 'autoload' : { 'commands' : 'LayoutPlugin'} }
 
 call neobundle#end()
@@ -166,5 +167,9 @@ let g:Align_xstrlen=3
 
 " for Unite
 let g:unite_split_rule = 'botright'
+
+" for vim-easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " vim: expandtab tabstop=2 softtabstop=2 shiftwidth=2
