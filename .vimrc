@@ -98,6 +98,9 @@ nnoremap <Leader>l :<C-u>call append(expand('.'), '')<Return>j
 noremap <Leader>pt <Esc>:%! perltidy<Return>
 noremap <Leader>ptv <Esc>:'<,'>! perltidy<Return>
 
+" ruby-align
+noremap <Leader>ra <Esc>:%! ruby-align<Return>
+noremap <Leader>rav <Esc>:'<,'>! ruby-align<Return>
 
 " US keyboard
 nnoremap ; :
