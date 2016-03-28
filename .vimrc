@@ -149,6 +149,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'vim-jp/vim-go-extra'
 NeoBundle 'google/vim-ft-go'
 NeoBundle 'elzr/vim-json'
+NeoBundle 'tpope/vim-endwise'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundleLazy 'mopp/layoutplugin.vim', { 'autoload' : { 'commands' : 'LayoutPlugin'} }
 
