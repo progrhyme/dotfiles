@@ -108,12 +108,13 @@ nnoremap : ;
 
 " ----------------------------------------
 " use templates
-autocmd BufNewFile *.pp   0r $HOME/.vim/template/puppet-module.txt
-autocmd BufNewFile *.sh   0r $HOME/.vim/template/bash.sh
-autocmd BufNewFile *.bash 0r $HOME/.vim/template/bash.sh
-autocmd BufNewFile *.pl   0r $HOME/.vim/template/perl-script.pl
-autocmd BufNewFile *.pm   0r $HOME/.vim/template/perl-module.pm
-autocmd BufNewFile *.t    0r $HOME/.vim/template/perl-test.t
+autocmd BufNewFile *.pp      0r $HOME/.vim/template/puppet-module.txt
+autocmd BufNewFile *.sh      0r $HOME/.vim/template/bash.sh
+autocmd BufNewFile *.bash    0r $HOME/.vim/template/bash.sh
+autocmd BufNewFile *.pl      0r $HOME/.vim/template/perl-script.pl
+autocmd BufNewFile *.pm      0r $HOME/.vim/template/perl-module.pm
+autocmd BufNewFile *.t       0r $HOME/.vim/template/perl-test.t
+autocmd BufNewFile clam.spec 0r $HOME/.vim/template/clam.spec
 
 " ----------------------------------------
 " Go
