@@ -1,7 +1,12 @@
+[alias]
+	tree = log --graph --date=relative --pretty='%C(auto)%h%d (%ad) %Cgreen%an%Creset : %s'
+	graph = log --oneline --graph --decorate
 [user]
 	name  = key-amb
 	email = yasutake.kiyoshi@gmail.com
 [push]
 	default = simple
+[help]
+	autocorrect = 1
 [color]
 	ui = true
