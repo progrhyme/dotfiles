@@ -31,4 +31,6 @@ if [ -d ${HOME}/.bashrc.d ]; then
   done
 fi
 
+. ${HOME}/dotfiles/bashrc.d/peco.bashrc
+
 HISTTIMEFORMAT='%y/%m/%d %H:%M:%S  '
