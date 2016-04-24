@@ -1,6 +1,11 @@
 #!/bin/bash
 
-PROJECT=dotfiles
+set -e
+
+script_dir=${0%/*}
+lib_dir="${script_dir}/../lib"
+source "${lib_dir}/setup-common.bashrc"
+
 case $SHELL in
   */bash) profiles=(.bashrc .git-completion.bash) ;;
   */zsh)  profiles=(.zshenv .zshrc) ;;
@@ -9,22 +14,12 @@ esac
 DOTFILES=(.gitconfig .vimrc .perltidyrc .screenrc ${profiles[*]})
 CMD=""
 
-cd $HOME
-if [ -e $PROJECT ]; then
-  printf "${HOME}/$PROJECT exists\n"
-else
-  ln -s gitrepos/${PROJECT}
-fi
+# ============================================================
+# Main
+init
 
-for file in ${DOTFILES[@]}; do
-  if [ -e $file ]; then
-    printf "${HOME}/$file exists\n"
-  else
-    ln -s $PROJECT/$file
-  fi
+for df in ${DOTFILES[@]}; do
+  symlink $df
 done
 
-# create .zshrc.d
-if [ ! -d $HOME/.zshrc.d ]; then
-  mkdir $HOME/.zshrc.d
-fi
+exit 0
