@@ -10,6 +10,7 @@ SRCS=(
   "shrc.d/tmux.shrc"
 )
 
+init
 for rc in ${SRCS[@]}; do
   _rc=${rc##*/}
   symlink2 $rc $CUSTOM_RC_DIR/${_rc}
