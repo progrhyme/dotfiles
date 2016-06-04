@@ -19,7 +19,8 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 ## prompt
 setopt prompt_subst
 
-tmp_prompt="%{${fg[cyan]}%}%n%# %{${reset_color}%}"
+#tmp_prompt="%{${fg[cyan]}%}%n%# %{${reset_color}%}"
+tmp_prompt="%{${fg[cyan]}%}%# %{${reset_color}%}"
 tmp_prompt2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
 tmp_rprompt="%{${fg[green]}%}[%~]%{${reset_color}%}"
 tmp_sprompt="%{${fg[yellow]}%}%r is correct? [Yes, No, Abort, Edit]:%{${reset_color}%}"
@@ -40,11 +41,13 @@ alias la='ls -a'
 alias vi='vim'
 alias vi-s='vim -S ~/.vim.session'
 
-if [ -d .zshrc.d ]; then
-  for file in `find .zshrc.d -mindepth 1`; do
+if [ -d $HOME/.zshrc.d ]; then
+  for file in `find $HOME/.zshrc.d -mindepth 1`; do
     source $file
   done
 fi
 
 # plenv
-eval "$(plenv init -)"
+if [[ -e $HOME/.plenv ]]; then
+  eval "$(plenv init -)"
+fi
