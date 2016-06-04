@@ -11,7 +11,7 @@ case $SHELL in
   */zsh)  profiles=(.zshenv .zshrc) ;;
   *)      profiles=() ;;
 esac
-DOTFILES=(.gitconfig .vimrc .perltidyrc .screenrc ${profiles[*]})
+DOTFILES=(.gitconfig .vimrc .perltidyrc .tmux.conf ${profiles[*]})
 CMD=""
 
 # ============================================================
