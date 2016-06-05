@@ -10,3 +10,5 @@
 	autocorrect = 1
 [color]
 	ui = true
+[core]
+	editor = vim
