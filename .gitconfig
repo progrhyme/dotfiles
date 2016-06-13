@@ -1,4 +1,8 @@
 [alias]
+	st    = status
+	ci    = commit -v
+	co    = checkout
+	amend = commit --amend
 	tree = log --graph --date=relative --pretty='%C(auto)%h%d (%ad) %Cgreen%an%Creset : %s'
 	graph = log --oneline --graph --decorate
 [user]
