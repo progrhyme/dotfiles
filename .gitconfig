@@ -1,13 +1,14 @@
 [alias]
-	st    = status
-	df    = diff
-	dfc   = diff --cached
-	ci    = commit -v
-	co    = checkout
-	br    = branch
-	amend = commit --amend -v
-	tree = log --graph --date=relative --pretty='%C(auto)%h%d (%ad) %Cgreen%an%Creset : %s'
-	graph = log --oneline --graph --decorate
+	st      = status
+	df      = diff
+	dfc     = diff --cached
+	ci      = commit -v
+	co      = checkout
+	br      = branch
+	amend   = commit --amend -v
+	rewrite = rebase -i
+	tree    = log --graph --date=relative --pretty='%C(auto)%h%d (%ad) %Cgreen%an%Creset : %s'
+	graph   = log --oneline --graph --decorate
 [user]
 	name  = key-amb
 	email = yasutake.kiyoshi@gmail.com
