@@ -6,7 +6,6 @@
 	co      = checkout
 	br      = branch
 	amend   = commit --amend -v
-	am      = commit --amend -v
 	rewrite = rebase -i
 	rw      = rebase -i
 	unstage = reset HEAD
