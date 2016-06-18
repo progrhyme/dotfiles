@@ -6,7 +6,10 @@
 	co      = checkout
 	br      = branch
 	amend   = commit --amend -v
+	am      = commit --amend -v
 	rewrite = rebase -i
+	rw      = rebase -i
+	unstage = reset HEAD
 	tree    = log --graph --date=relative --pretty='%C(auto)%h%d (%ad) %Cgreen%an%Creset : %s'
 	graph   = log --oneline --graph --decorate
 [user]
