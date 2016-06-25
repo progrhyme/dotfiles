@@ -2,6 +2,9 @@ if which peco >& /dev/null; then
   # unbind for peco
   bind -r "\C-u"
 
+  # for dir change
+  PECO_CD_CMD=${PECO_CD_CMD:-pushd}
+
   # search pid
   SELECTOR=peco
   _insert_pid() {
@@ -43,7 +46,7 @@ if which peco >& /dev/null; then
       fi
     done
     local _dir=$(for _d in ${_dirs[@]}; do echo $_d; done | peco)
-    pushd $_dir > /dev/null
+    $PECO_CD_CMD $_dir > /dev/null
   }
   peco-find-repository() {
     local _files repo
