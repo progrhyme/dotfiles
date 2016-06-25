@@ -17,6 +17,9 @@ case "$SHELL" in
       "bashrc.d/load-git-completion.bashrc"
     )
     ;;
+  */zsh )
+    SRCS+=("zshrc.d/peco.zshrc")
+    ;;
   * )
     ;;
 esac
