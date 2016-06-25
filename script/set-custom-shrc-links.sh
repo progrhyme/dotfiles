@@ -10,7 +10,18 @@ SRCS=(
   "shrc.d/tmux.shrc"
 )
 
+case "$SHELL" in
+  */bash )
+    SRCS+=(
+      "bashrc.d/peco.bashrc"
+    )
+    ;;
+  * )
+    ;;
+esac
+
 init
+
 for rc in ${SRCS[@]}; do
   _rc=${rc##*/}
   symlink2 $rc $CUSTOM_RC_DIR/${_rc}
