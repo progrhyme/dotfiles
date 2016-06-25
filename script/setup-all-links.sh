@@ -2,9 +2,8 @@
 
 set -e
 
-script_dir=${0%/*}
-lib_dir="${script_dir}/../lib"
-source "${lib_dir}/setup-common.bashrc"
+REPO_DIR=$(cd $(dirname $0)/.. && pwd)
+source "${REPO_DIR}/lib/setup-common.bashrc"
 
 case $SHELL in
   */bash) profiles=(.bashrc .git-completion.bash) ;;
