@@ -21,11 +21,14 @@ if which peco >/dev/null 2>&1; then
   if [[ -z $__PECO_SRCH_REPOS ]]; then
     __PECO_SRCH_REPOS=($HOME/gitrepos $HOME/my/repos $HOME/my/go/src)
   fi
+  __PECO_SRCH_REPOS_MAXDEPTH=${__PECO_SRCH_REPOS_MAXDEPTH:-5}
   function peco-cd-repodir() {
     local _dirs repo
     for repo in ${__PECO_SRCH_REPOS[@]}; do
       if [[ -d $repo ]]; then
-        _dirs+=( $(\find ${repo} -type d -a \! -regex '.*\.git.*') )
+        _dirs+=(
+          $(\find ${repo} -type d -maxdepth ${__PECO_SRCH_REPOS_MAXDEPTH} -a \! -regex '.*\.git.*')
+        )
       fi
     done
     local _dir=$(for _d in ${_dirs[@]}; do echo $_d; done | peco)
@@ -36,7 +39,7 @@ if which peco >/dev/null 2>&1; then
     local _files repo
     for repo in ${__PECO_SRCH_REPOS[@]}; do
       if [[ -d $repo ]]; then
-        _files+=( $(\find ${repo} \! -regex '.*\.git.*') )
+        _files+=( $(\find ${repo} -maxdepth ${__PECO_SRCH_REPOS_MAXDEPTH} \! -regex '.*\.git.*') )
       fi
     done
     local l=$(for _f in ${_files[@]}; do echo $_f; done | peco)
