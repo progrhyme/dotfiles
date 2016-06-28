@@ -45,7 +45,7 @@ if which peco >& /dev/null; then
         _dirs+=( $(\find ${repo} -type d -a \! -regex '.*\.git.*') )
       fi
     done
-    local _dir=$(for _d in ${_dirs[@]}; do echo $_d; done | peco)
+    local _dir=$(echo ${_dirs[@]} | tr ' ' '\n' | peco)
     $PECO_CD_CMD $_dir > /dev/null
   }
   peco-find-repository() {
