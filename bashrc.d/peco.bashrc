@@ -44,7 +44,7 @@ if which peco >& /dev/null; then
     for repo in ${__PECO_SRCH_REPOS[@]}; do
       if [[ -d $repo ]]; then
         _dirs+=(
-          $(\find ${repo} -type d -maxdepth ${__PECO_SRCH_REPOS_MAXDEPTH} -a \! -regex '.*\.git.*')
+          $(\find ${repo} -maxdepth ${__PECO_SRCH_REPOS_MAXDEPTH} -type d -a \! -regex '.*\.git.*')
         )
       fi
     done
