@@ -102,10 +102,6 @@ noremap <Leader>ptv <Esc>:'<,'>! perltidy<Return>
 noremap <Leader>ra <Esc>:%! ruby-align<Return>
 noremap <Leader>rav <Esc>:'<,'>! ruby-align<Return>
 
-" US keyboard
-nnoremap ; :
-nnoremap : ;
-
 " ----------------------------------------
 " use templates
 autocmd BufNewFile *.pp      0r $HOME/.vim/template/puppet-module.txt
