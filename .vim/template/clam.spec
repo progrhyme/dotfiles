@@ -1,4 +1,6 @@
 name=
 version=
-executables=bin/*
-resources=lib/*
+executables="bin/x"
+#executablepath="bin"
+librarypath="lib"
+#libraries="lib/x.sh lib/y.sh"
