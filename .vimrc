@@ -102,6 +102,10 @@ noremap <Leader>ptv <Esc>:'<,'>! perltidy<Return>
 noremap <Leader>ra <Esc>:%! ruby-align<Return>
 noremap <Leader>rav <Esc>:'<,'>! ruby-align<Return>
 
+" US keyboard
+"nnoremap ; :
+"nnoremap : ;
+
 " ----------------------------------------
 " use templates
 autocmd BufNewFile *.pp      0r $HOME/.vim/template/puppet-module.txt
@@ -148,7 +152,6 @@ NeoBundle 'google/vim-ft-go'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'scrooloose/syntastic'
 NeoBundleLazy 'mopp/layoutplugin.vim', { 'autoload' : { 'commands' : 'LayoutPlugin'} }
 
 call neobundle#end()
@@ -173,9 +176,5 @@ let g:unite_split_rule = 'botright'
 " for vim-easy-align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-
-" for syntastic
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers = ['rubocop']
 
 " vim: expandtab tabstop=2 softtabstop=2 shiftwidth=2
