@@ -138,6 +138,10 @@ Metrics/BlockLength:
   Exclude:
     - '*/spec/**/*'
 
+# 1行の文字数
+Metrics/MethodLength:
+  Max: 40
+
 # 数値の比較の際に、positive? negative? ではなく、比較演算子を優先する
 Style/NumericPredicate:
   EnforcedStyle: comparison
