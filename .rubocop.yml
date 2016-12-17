@@ -1,0 +1,147 @@
+AllCops:
+  Exclude:
+    - '*/log/**/*'
+    - '*/tmp/**/*'
+    - '*/vendor/**/*'
+  DisplayCopNames: true
+  TargetRubyVersion: 2.3
+
+# メソッド名のprefixに "set_" や "get_" を許可
+Style/AccessorMethodName:
+  Enabled: false
+
+# メソッド呼び出しの行から1段階インデントする
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+# 複数行のブロックで { ... } を許可
+Style/BlockDelimiters:
+  Enabled: false
+
+# モジュール名::クラス名の定義を許可
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/ClosingParenthesisIndentation:
+  Enabled: false
+
+# 条件文のifとelseの中で同じ変数に代入するのを許可
+Style/ConditionalAssignment:
+  Enabled: false
+
+# コメントのないクラス・モジュールを許可
+Style/Documentation:
+  Enabled: false
+
+# !! 演算子を許可
+Style/DoubleNegation:
+  Enabled: false
+
+# nil を返す else を許可
+Style/EmptyElse:
+  EnforcedStyle: empty
+
+#Style/ExtraSpacing:
+#  Enabled: false
+
+# `sprintf`, `format` ではなく String#% を使う
+Style/FormatString:
+  EnforcedStyle: percent
+
+# `frozen_string_literal: true` を付けない
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# 5行以上の場合ガード節を使用するようチェック
+Style/GuardClause:
+  MinBodyLength: 5
+
+# 1行だけのif/unlessを許可
+Style/IfUnlessModifier:
+  Enabled: false
+
+# 「lambda」を「->」に変更
+Style/Lambda:
+  EnforcedStyle: literal
+
+Style/MultilineMethodCallBraceLayout:
+  Enabled: false
+
+# 複数行のメソッド呼び出しで1段だけインデントする
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+# 定数のリテラルをfreezeしない
+Style/MutableConstant:
+  Enabled: false
+
+# 12桁以上の数値にはアンダースコアをつける
+Style/NumericLiterals:
+  MinDigits: 12
+
+# 正規表現参照の $1, $2,... を許可
+Style/PerlBackrefs:
+  Enabled: false
+
+# Exception.new(arg) を渡す raise を許可
+Style/RaiseArgs:
+  Enabled: false
+
+# ローカル変数とメソッド呼び出しを区別しやすくするため self. をつけてもよい
+Style/RedundantSelf:
+  Enabled: false
+
+# fail/raiseを使い分けなくてもよい
+Style/SignalException:
+  Enabled: false
+
+# メソッド引数の初期値の周りにはスペースを入れる
+Style/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: space
+
+# ブロックの直前にはスペースを入れる
+Style/SpaceBeforeBlockBraces:
+  EnforcedStyle: space
+
+# Rangeリテラルの内側にスペースを許可
+Style/SpaceInsideRangeLiteral:
+  Enabled: false
+
+# 可能な限りシングルクォートを使う
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+# 最後の余分なcommaを許可(リテラル)
+Style/TrailingCommaInLiteral:
+  Enabled: false
+
+# 最後の余分なcommaを許可(引数)
+Style/TrailingCommaInArguments:
+  Enabled: false
+
+# 何もしないrescueを許可
+Lint/HandleExceptions:
+  Enabled: false
+
+# 条件文の中での代入を許可
+Lint/AssignmentInCondition:
+  Enabled: false
+
+# 1行の文字数
+Metrics/LineLength:
+  Max: 100
+  Exclude:
+    - '*/spec/**/*'
+
+Metrics/BlockLength:
+  Max: 100
+  Exclude:
+    - '*/spec/**/*'
+
+# 数値の比較の際に、positive? negative? ではなく、比較演算子を優先する
+Style/NumericPredicate:
+  EnforcedStyle: comparison
+
+# Perlスタイルのグローバル変数は使わない
+Style/SpecialGlobalVars:
+  Enabled: false

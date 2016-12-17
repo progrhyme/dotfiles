@@ -10,7 +10,7 @@ case $SHELL in
   */zsh)  profiles=(.zshenv .zshrc) ;;
   *)      profiles=() ;;
 esac
-DOTFILES=(.gitconfig .vimrc .perltidyrc .tmux.conf ${profiles[*]})
+DOTFILES=(.gitconfig .vimrc .perltidyrc .tmux.conf .rubocop.yml ${profiles[*]})
 CMD=""
 
 # ============================================================
