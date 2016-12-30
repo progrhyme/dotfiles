@@ -127,6 +127,10 @@ Lint/HandleExceptions:
 Lint/AssignmentInCondition:
   Enabled: false
 
+# 代入、メソッド呼び出し、条件文の合計数
+Metrics/AbcSize:
+  Max: 20
+
 # 1行の文字数
 Metrics/LineLength:
   Max: 100
