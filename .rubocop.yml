@@ -1,8 +1,8 @@
 AllCops:
   Exclude:
-    - '*/log/**/*'
-    - '*/tmp/**/*'
-    - '*/vendor/**/*'
+    - 'log/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
   DisplayCopNames: true
   TargetRubyVersion: 2.3
 
@@ -135,12 +135,12 @@ Metrics/AbcSize:
 Metrics/LineLength:
   Max: 100
   Exclude:
-    - '*/spec/**/*'
+    - 'spec/**/*'
 
 Metrics/BlockLength:
   Max: 100
   Exclude:
-    - '*/spec/**/*'
+    - 'spec/**/*'
 
 # 1行の文字数
 Metrics/MethodLength:
