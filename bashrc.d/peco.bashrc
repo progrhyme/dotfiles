@@ -1,4 +1,4 @@
-if which peco >& /dev/null; then
+if which peco >& /dev/null && [[ -t 1 ]]; then
   # unbind for peco
   bind -r "\C-u"
 

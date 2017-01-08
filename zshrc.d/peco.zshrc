@@ -1,4 +1,4 @@
-if which peco >/dev/null 2>&1; then
+if which peco >/dev/null 2>&1 && [[ -t 1 ]]; then
   # unbind for peco
   bindkey -r '^u'
 
