@@ -1,6 +1,6 @@
 [submodule "submodule/Code-Templates"]
 	path = submodule/Code-Templates
-	url = git@github.com:key-amb/Code-Templates.git
+	url = git@github.com:progrhyme/Code-Templates.git
 [submodule "submodule/bash-links"]
 	path = submodule/bash-links
-	url = git@github.com:key-amb/bash-links.git
+	url = git@github.com:progrhyme/bash-links.git
