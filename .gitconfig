@@ -12,8 +12,8 @@
 	tree    = log --graph --date=relative --pretty='%C(auto)%h%d (%ad) %Cgreen%an%Creset : %s'
 	graph   = log --oneline --graph --decorate
 [user]
-	name  = key-amb
-	email = yasutake.kiyoshi@gmail.com
+	name  = progrhyme
+	email = progrhyme@gmail.com
 [push]
 	default = simple
 [help]
