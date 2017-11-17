@@ -153,6 +153,7 @@ NeoBundle 'elzr/vim-json'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'hashivim/vim-terraform'
 NeoBundleLazy 'mopp/layoutplugin.vim', { 'autoload' : { 'commands' : 'LayoutPlugin'} }
 
 call neobundle#end()
