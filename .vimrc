@@ -154,6 +154,7 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'hashivim/vim-terraform'
+NeoBundle 'derekwyatt/vim-scala'
 NeoBundleLazy 'mopp/layoutplugin.vim', { 'autoload' : { 'commands' : 'LayoutPlugin'} }
 
 call neobundle#end()
