@@ -6,6 +6,8 @@
 	co      = checkout
 	br      = branch
 	amend   = commit --amend -v
+	plr     = pull --prune
+	bsp     = branch-sweep --pull
 	rewrite = rebase -i
 	rw      = rebase -i
 	unstage = reset HEAD
