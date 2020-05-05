@@ -108,7 +108,6 @@ noremap <Leader>rav <Esc>:'<,'>! ruby-align<Return>
 
 " ----------------------------------------
 " use templates
-autocmd BufNewFile *.pp      0r $HOME/.vim/template/puppet-module.txt
 autocmd BufNewFile *.sh      0r $HOME/.vim/template/bash.sh
 autocmd BufNewFile *.bash    0r $HOME/.vim/template/bash.sh
 autocmd BufNewFile *.pl      0r $HOME/.vim/template/perl-script.pl
