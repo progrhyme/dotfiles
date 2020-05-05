@@ -8,15 +8,29 @@ source "${REPO_DIR}/lib/setup-common.bashrc"
 VIM_DIR=${HOME}/.vim
 TARGETS=(.vimrc .vim/ftplugin .vim/ftdetect .vim/template)
 
+# for Plugin Managers
+NEOBUNDLE_DIR=${VIM_DIR}/bundle
+DEIN_DIR=${VIM_DIR}/dein
+DEIN=${DEIN:-}
+
 # ============================================================
 # Functions
 install_neobundle() {
-  local bundle_dir="${VIM_DIR}/bundle"
-
-  if [[ ! -d $bundle_dir ]]; then
+  if [[ ! -d $NEOBUNDLE_DIR ]]; then
     local workrepo="${bundle_dir}/neobundle.vim"
-    mkdir -p $bundle_dir
+    mkdir -p $NEOBUNDLE_DIR
     git clone https://github.com/Shougo/neobundle.vim $workrepo
+  fi
+}
+
+install_dein() {
+  if [[ ! -d $DEIN_DIR ]]; then
+    mkdir -p $DEIN_DIR
+    (
+      cd $DEIN_DIR
+      curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+      sh ./installer.sh $DEIN_DIR
+    )
   fi
 }
 
@@ -32,7 +46,11 @@ for t in ${TARGETS[@]}; do
   symlink $t
 done
 
-# Plugin Manager
-install_neobundle
+# Install Plugin Manager
+if [[ -n "${DEIN}" ]]; then
+  install_dein
+else
+  install_neobundle
+fi
 
 exit 0
