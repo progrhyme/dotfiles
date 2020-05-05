@@ -11,7 +11,7 @@ TARGETS=(.vimrc .vim/ftplugin .vim/ftdetect .vim/template)
 # for Plugin Managers
 NEOBUNDLE_DIR=${VIM_DIR}/bundle
 DEIN_DIR=${VIM_DIR}/dein
-DEIN=${DEIN:-}
+NEOBUNDLE=${NEOBUNDLE:-}
 
 # ============================================================
 # Functions
@@ -47,7 +47,7 @@ for t in ${TARGETS[@]}; do
 done
 
 # Install Plugin Manager
-if [[ -n "${DEIN}" ]]; then
+if [[ -z "${NEOBUNDLE}" ]]; then
   install_dein
 else
   install_neobundle
