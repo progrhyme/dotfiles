@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
 REPO_DIR=$(cd $(dirname $0)/.. && pwd)
 source "${REPO_DIR}/lib/setup-common.bashrc"
@@ -9,23 +9,30 @@ VIM_DIR=${HOME}/.vim
 TARGETS=(.vimrc .vim/ftplugin .vim/ftdetect .vim/template)
 
 # ============================================================
+# Functions
+install_neobundle() {
+  local bundle_dir="${VIM_DIR}/bundle"
+
+  if [[ ! -d $bundle_dir ]]; then
+    local workrepo="${bundle_dir}/neobundle.vim"
+    mkdir -p $bundle_dir
+    git clone https://github.com/Shougo/neobundle.vim $workrepo
+  fi
+}
+
+# ============================================================
 # Main
 init_base_dir
 
 # create ~/.vim
-if [ ! -d ${VIM_DIR} ]; then
-  mkdir -p ${VIM_DIR};
-fi
+mkdir -p ${VIM_DIR};
 
 # create symlinks
 for t in ${TARGETS[@]}; do
   symlink $t
 done
 
-# for NeoBundle
-if [ ! -d ${VIM_DIR}/bundle ]; then
-  mkdir -p ${VIM_DIR}/bundle
-  git clone https://github.com/Shougo/neobundle.vim ${VIM_DIR}/bundle/neobundle.vim
-fi
+# Plugin Manager
+install_neobundle
 
 exit 0
