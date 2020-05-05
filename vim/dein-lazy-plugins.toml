@@ -1,5 +1,6 @@
 [[plugins]]
-repo = 'slim-template/vim-slim'
+repo  = 'slim-template/vim-slim'
+on_ft = 'slim'
 
 [[plugins]]
 repo = 'kchmck/vim-coffee-script'
@@ -17,7 +18,8 @@ repo  = 'elzr/vim-json'
 on_ft = 'json'
 
 [[plugins]]
-repo = 'hashivim/vim-terraform'
+repo  = 'hashivim/vim-terraform'
+on_ft = 'terraform'
 
 [[plugins]]
 repo  = 'derekwyatt/vim-scala'

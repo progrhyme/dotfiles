@@ -14,7 +14,7 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo     = 'Align'
+repo     = 'vim-scripts/Align'
 hook_add = '''
   let g:Align_xstrlen=3
 '''
