@@ -36,5 +36,14 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+hook_add = '''
+  let g:ctrlp_cmd = 'CtrlPMixed'
+  let g:ctrlp_user_command =
+    \ ['.git', 'cd %s && git ls-files -co --exclude-standard']
+  nnoremap <Leader>/ <ESC>:CtrlPLine<Return>
+'''
+
+[[plugins]]
 repo  = 'cespare/vim-toml'
 on_ft = 'toml'
