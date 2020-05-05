@@ -68,5 +68,11 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'ervandew/supertab'
+hook_add = '''
+  let g:SuperTabDefaultCompletionType = "<c-n>"
+'''
+
+[[plugins]]
 repo  = 'cespare/vim-toml'
 on_ft = 'toml'
