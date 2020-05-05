@@ -91,9 +91,6 @@ au VimLeave * mks! ~/.vim.session
 " ----------------------------------------
 " key mapping
 nnoremap <Leader>l :<C-u>call append(expand('.'), '')<Return>j
-" NOTE:
-"  Additional plugin-related key mappings are defined in plugins.toml loaded
-"  by dein later in this .vimrc
 
 " perltidy
 noremap <Leader>pt <Esc>:%! perltidy<Return>
@@ -106,6 +103,10 @@ noremap <Leader>rav <Esc>:'<,'>! ruby-align<Return>
 " US keyboard
 "nnoremap ; :
 "nnoremap : ;
+
+" NOTE:
+"  Additional plugin-related key mappings are defined in plugins.toml loaded
+"  by dein later in this .vimrc
 
 " ----------------------------------------
 " use templates
