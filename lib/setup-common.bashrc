@@ -1,6 +1,6 @@
 # bash
 REPO_DIR=${REPO_DIR:-$HOME/my/repos/dotfiles}
-DOTS_DIR=${DOTS_DIR:-$HOME/dotfiles}
+DOTS_DIR=${DOTS_DIR:-$HOME/.dotfiles}
 CUSTOM_RC_DIR=""
 case "$SHELL" in
   */bash )
