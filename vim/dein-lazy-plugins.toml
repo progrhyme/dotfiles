@@ -1,0 +1,32 @@
+[[plugins]]
+repo = 'slim-template/vim-slim'
+
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+
+[[plugins]]
+repo  = 'vim-jp/vim-go-extra'
+on_ft = 'go'
+
+[[plugins]]
+repo  = 'google/vim-ft-go'
+on_ft = 'go'
+
+[[plugins]]
+repo  = 'elzr/vim-json'
+on_ft = 'json'
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+
+[[plugins]]
+repo  = 'derekwyatt/vim-scala'
+on_ft = 'scala'
+
+[[plugins]]
+repo     = 'scrooloose/syntastic'
+on_ft    = 'ruby'
+hook_add = '''
+  let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
+  let g:syntastic_ruby_checkers = ['rubocop']
+'''

@@ -1,0 +1,40 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo     = 'Shougo/unite.vim'
+hook_add = '''
+  let g:unite_split_rule = 'botright'
+'''
+
+[[plugins]]
+repo = 'Shougo/unite-outline'
+hook_add = '''
+  nnoremap <Leader>u <ESC>:Unite -vertical -winwidth=40 outline<Return>
+'''
+
+[[plugins]]
+repo     = 'Align'
+hook_add = '''
+  let g:Align_xstrlen=3
+'''
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+  nnoremap <Leader>t <ESC>:NERDTreeToggle<Return>
+'''
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+
+[[plugins]]
+repo     = 'junegunn/vim-easy-align'
+hook_add = '''
+  xmap ga <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
+'''
+
+[[plugins]]
+repo  = 'cespare/vim-toml'
+on_ft = 'toml'

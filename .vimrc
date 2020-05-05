@@ -90,9 +90,10 @@ au VimLeave * mks! ~/.vim.session
 
 " ----------------------------------------
 " key mapping
-nnoremap <Leader>u <ESC>:Unite -vertical -winwidth=40 outline<Return>
-nnoremap <Leader>t <ESC>:NERDTreeToggle<Return>
 nnoremap <Leader>l :<C-u>call append(expand('.'), '')<Return>j
+" NOTE:
+"  Additional plugin-related key mappings are defined in plugins.toml loaded
+"  by dein later in this .vimrc
 
 " perltidy
 noremap <Leader>pt <Esc>:%! perltidy<Return>
@@ -122,65 +123,40 @@ command Gorun execute "!go run %"
 au BufWritePre *.go Fmt
 
 " ----------------------------------------
-" NeoBundle
-filetype off
-if has('vim_starting')
-  if &compatible
-    set nocompatible " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim
+" dein.vim / START
+if &compatible
+  set nocompatible " Be iMproved
 endif
 
-call neobundle#begin(expand('~/.vim/bundle'))
+let s:dein_dir = expand('~/.vim/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+let s:config_dir = expand('~/.dotfiles/vim')
 
-" Let NeoBundle manage NeoBundle
 " Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+execute 'set runtimepath^=' . s:dein_repo_dir
 
-" My Bundles here:
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'Align'
-NeoBundle 'slim-template/vim-slim'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'vim-jp/vim-go-extra'
-NeoBundle 'google/vim-ft-go'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'hashivim/vim-terraform'
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundleLazy 'mopp/layoutplugin.vim', { 'autoload' : { 'commands' : 'LayoutPlugin'} }
+" Required:
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
-call neobundle#end()
+  call dein#load_toml(s:config_dir . '/dein-plugins.toml', {'lazy': 0})
+  call dein#load_toml(s:config_dir . '/dein-lazy-plugins.toml', {'lazy': 1})
 
-" Reqiured:
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Required:
 filetype plugin indent on
+syntax enable
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
 
+" dein.vim / END
 " ----------------------------------------
-" for plugins
-set nocp
-
-" for Align
-let g:Align_xstrlen=3
-
-" for Unite
-let g:unite_split_rule = 'botright'
-
-" for vim-easy-align
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-
-" for syntastic
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers = ['rubocop']
-
+"
 " vim: expandtab tabstop=2 softtabstop=2 shiftwidth=2
