@@ -8,9 +8,23 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/unite-outline'
+repo     = 'Shougo/unite-outline'
 hook_add = '''
   nnoremap <Leader>u <ESC>:Unite -vertical -winwidth=40 outline<Return>
+'''
+
+[[plugins]]
+repo     = 'leafcage/yankround.vim'
+hook_add = '''
+  nmap p <Plug>(yankround-p)
+  xmap p <Plug>(yankround-p)
+  nmap P <Plug>(yankround-P)
+  nmap gp <Plug>(yankround-gp)
+  xmap gp <Plug>(yankround-gp)
+  nmap gP <Plug>(yankround-gP)
+  nmap <C-k> <Plug>(yankround-prev)
+  nmap <C-j> <Plug>(yankround-next)
+  nnoremap <Leader>y <ESC>:Unite yankround<Return>
 '''
 
 [[plugins]]
