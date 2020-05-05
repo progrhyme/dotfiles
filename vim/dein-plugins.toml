@@ -59,5 +59,14 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'kana/vim-operator-replace'
+hook_add = '''
+  nmap <Space> <Plug>(operator-replace)
+'''
+
+[[plugins]]
 repo  = 'cespare/vim-toml'
 on_ft = 'toml'
