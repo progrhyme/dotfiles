@@ -1,3 +1,6 @@
+" ----------------------------------------
+" Basic Editor Settings
+
 set autoindent
 " show line number
 set number
@@ -12,6 +15,14 @@ set shiftwidth=4
 " backspace
 set backspace=indent,eol,start
 
+" encoding
+set encoding=utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileformats=unix,dos,mac
+
+" ----------------------------------------
+" Additional Editor Settings
+
 " syntax
 syntax on
 " modeline
@@ -22,7 +33,6 @@ set foldmethod=indent
 set foldcolumn=3
 set foldlevel=10
 
-" ----------------------------------------
 " Status Line
 set statusline=%<%f\ %m%r%h%w
 set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
