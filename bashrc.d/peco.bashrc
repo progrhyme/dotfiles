@@ -71,11 +71,25 @@ if which peco >& /dev/null && [[ -t 1 ]]; then
     READLINE_LINE="${READLINE_LINE:0:$READLINE_POINT}${l}${READLINE_LINE:$READLINE_POINT}"
     READLINE_POINT=$(($READLINE_POINT + ${#l}))
   }
-  function peco-find-all() {
+  peco-find-all() {
     local l=$(\find . -maxdepth 8 | peco)
     READLINE_LINE="${READLINE_LINE:0:$READLINE_POINT}${l}${READLINE_LINE:$READLINE_POINT}"
     READLINE_POINT=$(($READLINE_POINT + ${#l}))
   }
   bind -x '"\C-uc": peco-find'
   bind -x '"\C-ua": peco-find-all'
+
+  # Switch kubectl context/namespace
+  if command -v kubectl &>/dev/null; then
+    peco-kubectx() {
+      local l=$(kubectl config get-contexts --no-headers -o=name | peco)
+      kubectl config use-context $l
+    }
+    peco-kubens() {
+      local l=$(kubectl get namespaces --no-headers --output "custom-columns=NAME:.metadata.name" | peco)
+      kubectl config set-context $(kubectl config current-context) --namespace=$l
+    }
+    bind -x '"\C-ux": peco-kubectx'
+    bind -x '"\C-un": peco-kubens'
+  fi
 fi
