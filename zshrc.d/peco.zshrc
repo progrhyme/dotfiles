@@ -3,7 +3,7 @@ if which peco >/dev/null 2>&1 && [[ -t 1 ]]; then
   bindkey -r '^u'
 
   # search history
-  function peco-select-history() {
+  peco-select-history() {
     local tac
     if which tac > /dev/null; then
       tac="tac"
@@ -22,7 +22,7 @@ if which peco >/dev/null 2>&1 && [[ -t 1 ]]; then
     __PECO_SRCH_REPOS=($HOME/gitrepos $HOME/my/repos $HOME/my/go/src)
   fi
   __PECO_SRCH_REPOS_MAXDEPTH=${__PECO_SRCH_REPOS_MAXDEPTH:-5}
-  function peco-cd-repodir() {
+  peco-cd-repodir() {
     local _dirs repo
     for repo in ${__PECO_SRCH_REPOS[@]}; do
       if [[ -d $repo ]]; then
@@ -35,7 +35,7 @@ if which peco >/dev/null 2>&1 && [[ -t 1 ]]; then
     pushd $_dir > /dev/null
     zle clear-screen
   }
-  function peco-find-repository() {
+  peco-find-repository() {
     local _files repo
     for repo in ${__PECO_SRCH_REPOS[@]}; do
       if [[ -d $repo ]]; then
@@ -53,13 +53,13 @@ if which peco >/dev/null 2>&1 && [[ -t 1 ]]; then
   bindkey '^uf' peco-find-repository
 
   # search current directory
-  function peco-find() {
+  peco-find() {
     local l=$(\find . -maxdepth 8 -a \! -regex '.*/\..*' | peco)
     BUFFER="${LBUFFER}${l}"
     CURSOR=$#BUFFER
     zle clear-screen
   }
-  function peco-find-all() {
+  peco-find-all() {
     local l=$(\find . -maxdepth 8 | peco)
     BUFFER="${LBUFFER}${l}"
     CURSOR=$#BUFFER
@@ -71,7 +71,7 @@ if which peco >/dev/null 2>&1 && [[ -t 1 ]]; then
   bindkey '^ua' peco-find-all
 
   # search cdr history
-  function peco-cdr() {
+  peco-cdr() {
     local _dir=$(cdr -l | awk '{ print $2 }' | peco)
     BUFFER="cd ${_dir}"
     zle accept-line
@@ -79,4 +79,20 @@ if which peco >/dev/null 2>&1 && [[ -t 1 ]]; then
   }
   zle -N peco-cdr
   bindkey '^ur' peco-cdr
+
+  # Switch kubectl context/namespace
+  if command -v kubectl &>/dev/null; then
+    peco-kubectx() {
+      local l=$(kubectl config get-contexts --no-headers -o=name | peco)
+      kubectl config use-context $l
+    }
+    peco-kubens() {
+      local l=$(kubectl get namespaces --no-headers --output "custom-columns=NAME:.metadata.name" | peco)
+      kubectl config set-context $(kubectl config current-context) --namespace=$l
+    }
+    zle -N peco-kubectx
+    zle -N peco-kubens
+    bindkey '^ux' peco-kubectx
+    bindkey '^un' peco-kubens
+  fi
 fi
