@@ -18,6 +18,9 @@ case "$SHELL" in
     ;;
   */zsh )
     SRCS+=("zshrc.d/peco.zshrc")
+    if [[ -e /Applications/iTerm.app ]]; then
+      SRCS+=("zshrc.d/darwin/iterm2_shell_integration.zsh")
+    fi
     ;;
   * )
     ;;
