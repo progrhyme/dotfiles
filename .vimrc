@@ -40,6 +40,7 @@ set statusline+=%=%l/%L,%c%V%8P
 " show statusline always
 set laststatus=2
 " color
+colorscheme elflord
 highlight StatusLine term=bold cterm=bold ctermfg=black ctermbg=blue
 
 set hlsearch
