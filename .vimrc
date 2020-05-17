@@ -39,9 +39,8 @@ set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
 set statusline+=%=%l/%L,%c%V%8P
 " show statusline always
 set laststatus=2
-" color
+
 colorscheme elflord
-highlight StatusLine term=bold cterm=bold ctermfg=black ctermbg=blue
 
 set hlsearch
 
@@ -160,5 +159,8 @@ endif
 
 " dein.vim / END
 " ----------------------------------------
-"
+
+highlight clear StatusLine
+highlight StatusLine ctermfg=black ctermbg=blue
+
 " vim: expandtab tabstop=2 softtabstop=2 shiftwidth=2
