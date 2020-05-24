@@ -96,4 +96,15 @@ if which peco >& /dev/null && [[ -t 1 ]]; then
     bind -x '"\C-ux": peco-kubectx'
     bind -x '"\C-un": peco-kubens'
   fi
+
+  # Switch gcloud configuration
+  if command -v gcloud &>/dev/null; then
+    peco-gcloud-configuration() {
+      local l=$(gcloud config configurations list --format='value(name)' | peco)
+      if [[ -n "$l" ]]; then
+        gcloud config configurations activate $l
+      fi
+    }
+    bind -x '"\C-ug": peco-gcloud-configuration'
+  fi
 fi

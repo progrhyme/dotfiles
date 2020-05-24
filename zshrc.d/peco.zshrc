@@ -101,4 +101,17 @@ if which peco >/dev/null 2>&1 && [[ -t 1 ]]; then
     bindkey '^ux' peco-kubectx
     bindkey '^un' peco-kubens
   fi
+
+  # Switch gcloud configuration
+  if command -v gcloud &>/dev/null; then
+    peco-gcloud-configuration() {
+      local l=$(gcloud config configurations list --format='value(name)' | peco)
+      if [[ -n "$l" ]]; then
+        BUFFER="gcloud config configurations activate $l"
+        zle accept-line
+      fi
+    }
+    zle -N peco-gcloud-configuration
+    bindkey '^ug' peco-gcloud-configuration
+  fi
 fi
