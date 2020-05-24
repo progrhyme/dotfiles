@@ -9,4 +9,4 @@ fi
 # history
 HISTSIZE=10000
 SAVEHIST=10000
-HISTTIMEFORMAT='%y-%m-%d %H:%M:%S  '
+HISTTIMEFORMAT='%F %T  '
