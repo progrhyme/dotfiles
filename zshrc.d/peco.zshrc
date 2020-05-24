@@ -84,11 +84,17 @@ if which peco >/dev/null 2>&1 && [[ -t 1 ]]; then
   if command -v kubectl &>/dev/null; then
     peco-kubectx() {
       local l=$(kubectl config get-contexts --no-headers -o=name | peco)
-      kubectl config use-context $l
+      if [[ -n "$l" ]]; then
+        BUFFER="kubectl config use-context $l"
+        zle accept-line
+      fi
     }
     peco-kubens() {
       local l=$(kubectl get namespaces --no-headers --output "custom-columns=NAME:.metadata.name" | peco)
-      kubectl config set-context $(kubectl config current-context) --namespace=$l
+      if [[ -n "$l" ]]; then
+        BUFFER="kubectl config set-context $(kubectl config current-context) --namespace=$l"
+        zle accept-line
+      fi
     }
     zle -N peco-kubectx
     zle -N peco-kubens
