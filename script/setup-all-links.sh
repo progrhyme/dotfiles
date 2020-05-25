@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -e
+set -eu
 
 REPO_DIR=$(cd $(dirname $0)/.. && pwd)
 source "${REPO_DIR}/lib/setup-common.bashrc"
@@ -17,8 +17,16 @@ case $SHELL in
   *)     profiles=() ;;
 esac
 
-DOTFILES=(.gitconfig .vimrc .perltidyrc .tmux.conf .rubocop.yml ${profiles[*]})
-CMD=""
+DOTFILES=(
+  .config/git/ignore
+  .gemrc
+  .gitconfig
+  .perltidyrc
+  .rubocop.yml
+  .tmux.conf
+  .vimrc
+  ${profiles[*]}
+)
 
 # ============================================================
 # Main

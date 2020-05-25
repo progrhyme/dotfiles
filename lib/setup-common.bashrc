@@ -1,6 +1,8 @@
 # bash
+
 REPO_DIR=${REPO_DIR:-$HOME/my/repos/dotfiles}
 DOTS_DIR=${DOTS_DIR:-$HOME/.dotfiles}
+
 CUSTOM_RC_DIR=""
 case "$SHELL" in
   */bash )
@@ -41,6 +43,11 @@ fi
 symlink() {
   local src="${DOTS_DIR}/${1}";
   local link="${HOME}/$1"
+  local _dir="${1%/*}"
+  if [[ "$_dir" != "$1" ]]; then
+    mkdir -p "$HOME/${_dir}"
+    echo "[ok] mkdir $HOME/${_dir}"
+  fi
   $LINKER $src $link
 }
 

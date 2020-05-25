@@ -1,0 +1,10 @@
+### Intellij ###
+.idea/
+
+### Vim ###
+# Swap
+[._]*.sw[a-p]
+[._]sw[a-p]
+
+### direnv ###
+\.envrc
