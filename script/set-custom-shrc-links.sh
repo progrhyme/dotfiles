@@ -13,7 +13,7 @@ case "$SHELL" in
   */bash )
     SRCS+=(
       "bashrc.d/peco.bashrc"
-      "bashrc.d/load-git-completion.bashrc"
+      "bashrc.d/10-load-git-completion.bashrc"
     )
     ;;
   */zsh )
