@@ -1,0 +1,17 @@
+if [[ "${OSTYPE}" =~ ^darwin* ]]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --show-control-chars --color=auto'
+fi
+alias ll='ls -lF'
+alias la='ls -a'
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias vi='vim'
+
+alias refresh="exec $SHELL -l"
+
+alias bx='bundle exec'

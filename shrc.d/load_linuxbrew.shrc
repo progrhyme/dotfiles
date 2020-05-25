@@ -1,0 +1,9 @@
+__homebrew_root=/home/linuxbrew/.linuxbrew
+
+if [[ -d "${__homebrew_root}" ]]; then
+  if ! (echo $PATH | grep "${__homebrew_root}/bin" >/dev/null 2>&1); then
+    eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+  fi
+fi
+
+unset __homebrew_root
