@@ -1,0 +1,4 @@
+# bash / zsh
+if [[ -d ${HOME}/.nodebrew ]]; then
+  PATH=$HOME/.nodebrew/current/bin:$PATH
+fi

@@ -1,0 +1,4 @@
+source $DOTFILES/shrc.d/cargo.shrc
+source $DOTFILES/shrc.d/anyenv.shrc
+source $DOTFILES/shrc.d/nodebrew.shrc
+source $DOTFILES/shrc.d/golang.shrc

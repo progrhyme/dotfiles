@@ -1,0 +1,6 @@
+# bash / zsh
+if [[ -d $HOME/.cargo ]]; then
+  if ! (echo $PATH | grep $HOME/.cargo/bin >/dev/null 2>&1); then
+    source $HOME/.cargo/env
+  fi
+fi

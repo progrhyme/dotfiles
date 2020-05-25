@@ -1,0 +1,8 @@
+__goroot=${GOROOT:-"/usr/local/go"}
+if [[ -d $__goroot ]]; then
+  PATH=$PATH:${__goroot}/bin
+fi
+if [[ -d $HOME/go ]]; then
+  PATH=$HOME/go/bin:$PATH
+fi
+unset __goroot

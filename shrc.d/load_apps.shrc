@@ -1,0 +1,2 @@
+source $DOTFILES/shrc.d/load_prog_envs.shrc
+source $DOTFILES/shrc.d/load_vendor_apps.shrc

@@ -1,0 +1,18 @@
+__load_files=(
+  "$HOME/.travis/travis.sh"
+)
+
+case "$SHELL" in
+  */bash )
+    source "$DOTFILES/bashrc.d/google-cloud-sdk.bashrc";;
+  */zsh )
+    source "$DOTFILES/zshrc.d/google-cloud-sdk.zshrc";;
+  * )
+    ;;
+esac
+
+for __src in "${__load_files[@]}"; do
+  [[ -f "${__src}" ]] && . "${__src}"
+done
+
+unset __load_files __src
