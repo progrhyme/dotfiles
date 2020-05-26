@@ -59,8 +59,12 @@ update_clam_modules() {
 # check if basher packages outdated
 check_basher_outdated() {
   local tsfile="${TMPD}/basher.${YMD}"
+  local bp
   if [[ $FORCE || ! -e $tsfile ]]; then
-    basher outdated | xargs -t -n 1 basher upgrade
+    for bp in $(basher outdated); do
+      echo "[info] basher upgrade $bp"
+      basher upgrade $bp
+    done
     rm -f "$TMPD/basher.*"
     touch $tsfile
   fi
