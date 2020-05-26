@@ -17,7 +17,7 @@ case $SHELL in
   *)     profiles=() ;;
 esac
 
-DOTFILES=(
+DOT_FILES=(
   .config/git/ignore
   .gemrc
   .gitconfig
@@ -32,7 +32,7 @@ DOTFILES=(
 # Main
 init
 
-for df in ${DOTFILES[@]}; do
+for df in ${DOT_FILES[@]}; do
   symlink $df
 done
 
