@@ -1,7 +1,7 @@
 # bash
 
-REPO_DIR=${REPO_DIR:-$HOME/my/repos/dotfiles}
-DOTS_DIR=${DOTS_DIR:-$HOME/.dotfiles}
+REPO_DIR="${REPO_DIR:-$(cd $(dirname $BASH_SOURCE)/.. && pwd)}"
+DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
 
 CUSTOM_RC_DIR=""
 case "$SHELL" in
@@ -13,13 +13,14 @@ case "$SHELL" in
     ;;
 esac
 
+# symlink
+LINKER="$DOTFILES/submodule/bash-links/links --verbose"
+if [[ ${LINKS_FORCE:-} ]]; then
+  LINKER="${LINKER} --force"
+fi
+
 init_base_dir() {
-  if [[ -e $DOTS_DIR ]]; then
-    echo "[info] ${DOTS_DIR} exists"
-  else
-    ln -s $REPO_DIR $DOTS_DIR
-    echo "[ok] linked. $DOTS_DIR -> $REPO_DIR"
-  fi
+  $LINKER $REPO_DIR $DOTFILES
 }
 
 mk_custom_rc_dir() {
@@ -34,14 +35,8 @@ init() {
   mk_custom_rc_dir
 }
 
-# symlink
-LINKER="$DOTS_DIR/submodule/bash-links/links --verbose"
-if [[ ${LINKS_FORCE:-} ]]; then
-  LINKER="${LINKER} --force"
-fi
-
 symlink() {
-  local src="${DOTS_DIR}/${1}";
+  local src="${DOTFILES}/${1}";
   local link="${HOME}/$1"
   local _dir="${1%/*}"
   if [[ "$_dir" != "$1" ]]; then
@@ -52,7 +47,7 @@ symlink() {
 }
 
 symlink2() {
-  local src=$DOTS_DIR/$1
+  local src=$DOTFILES/$1
   local link=$2
   $LINKER $src $link
 }
