@@ -1,1 +1,4 @@
 /envs/*
+
+# 3rd party tools
+/vendor/
