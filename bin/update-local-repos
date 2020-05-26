@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+PROG=$(basename $0)
+base_dir="$(cd $(dirname $0)/..; pwd)"
+source "${base_dir}/lib/dotenv.bashrc"
+require lib/$PROG.bashrc
+
+FORCE=
+case "${1:-}" in
+  "-f" | "--force" )
+    FORCE=1
+    ;;
+  "" ) ;;
+  * )
+    echo "[info] Option $1 is ignored."
+esac
+
+YMD=$(date +%Y%m%d)
+
+mkdir -p $TMPD
+trap unlock 0 1 2 3 15
+
+get_lock || exit
+
+cleanup_tmpdir
+
+if [[ -z ${LOCAL_REPOS:-} ]]; then
+  LOCAL_REPOS=($DOTFILES)
+fi
+
+for repo_branch_txt in ${LOCAL_REPOS[@]}; do
+  repo_branch=(${repo_branch_txt//:/ })
+  repo="${repo_branch[0]}"
+  branch="${repo_branch[1]:-master}"
+  repo_base=$(basename $repo)
+  tsfile="$TMPD/${repo_base}.$YMD"
+
+  [[ -z $FORCE && -e $tsfile ]] && continue
+
+  if [[ ! -d $repo ]]; then
+    echo "[NOTICE] Not exist $repo. Skips." >&2
+    touch $tsfile
+    continue
+  fi
+
+  cd $repo
+  git pull origin $branch
+  if [[ -f .gitmodules ]]; then
+    git submodule update --init
+  fi
+
+  touch $tsfile
+done
+
+update_local_env
+
+if command -v clam $>/dev/null; then
+  update_clam_modules
+fi
+
+if command -v basher &>/dev/null; then
+  check_basher_outdated
+fi
+
+exit
+
+: <<'__EOF__'
+
+=encoding utf8
+
+=head1 NAME
+
+B<update-local-repos> - Update repositories
+
+=head1 SYNOPSYS
+
+    env MYENV=ubuntu-desktop update-local-repos [-f|--force]
+
+=head1 DESCRIPTION
+
+Update local repositories configured by C<LOCAL_REPOS> shell variable.
+
+=head1 AUTHORS
+
+IKEDA Kiyoshi E<lt>progrhyme@gmail.comE<gt>
+
+=cut
+
+__EOF__
+

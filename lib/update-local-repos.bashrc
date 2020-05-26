@@ -1,0 +1,67 @@
+# bash
+# Library for common/bin/update-local-repos
+
+TMPD=$HOME/tmp/$PROG
+DOTFILES=${DOTFILES:-$HOME/.dotfiles}
+
+# lock & unlock
+LOCK_DIR=$TMPD/lock.d
+MAX_RETRY=4
+SLEEP=2
+MAX_SLEEP=10
+
+get_lock() {
+  local retry=0
+  while true; do
+    if mkdir $LOCK_DIR &>/dev/null; then
+      if ((retry > 0)); then
+        echo "[info] Succeeded to get lock."
+      fi
+      return 0
+    fi
+    ((++retry > MAX_RETRY)) && break
+    echo "[notice] Failed to get lock. Retrying ... (${retry})"
+    sleep $SLEEP
+    # exponential backoff
+    SLEEP=$((SLEEP*2))
+    if ((SLEEP > MAX_SLEEP)); then
+      SLEEP=$MAX_SLEEP
+    fi
+  done
+
+  echo "[warn] Retry failed! Abort!"
+  return 1
+}
+
+unlock() {
+  rmdir $LOCK_DIR
+}
+
+cleanup_tmpdir() {
+  find $TMPD -mtime +3 -exec rm -f {} \;
+}
+
+# should be overridden by the environment
+update_local_env() {
+  :
+}
+
+# update clenv/clam modules
+update_clam_modules() {
+  tsfile="$TMPD/clam-modules.$YMD"
+  if [[ $FORCE || ! -e $tsfile ]]; then
+    clam -r $DOTFILES/etc/Clamfile
+    rm -f "$TMPD/clam-modules.*"
+    touch $tsfile
+  fi
+}
+
+# check if basher packages outdated
+check_basher_outdated() {
+  local tsfile="${TMPD}/basher.${YMD}"
+  if [[ $FORCE || ! -e $tsfile ]]; then
+    basher outdated | xargs -t -n 1 basher upgrade
+    rm -f "$TMPD/basher.*"
+    touch $tsfile
+  fi
+}
