@@ -3,6 +3,7 @@
 set -euo pipefail
 
 base_dir="$(cd $(dirname $0)/..; pwd)"
-source "${base_dir}/lib/basher.bashrc"
+source "${base_dir}/lib/dotenv.bashrc"
+require lib/basher.bashrc
 
 basher_bundle_install
