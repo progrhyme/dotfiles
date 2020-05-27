@@ -54,23 +54,7 @@ bootstrap() {
   mk_custom_rc_dir
 }
 
-symlink() {
-  local src="${DOTS_ROOT}/${1}";
-  local link="${HOME}/$1"
-  local _dir="${1%/*}"
-  if [[ "$_dir" != "$1" ]]; then
-    mkdir_p "$HOME/${_dir}"
-  fi
-  $LINKER $src $link
-}
-
-symlink2() {
-  local src=$DOTS_ROOT/$1
-  local link=$2
-  $LINKER $src $link
-}
-
-# Alternative of symlink()
+# Create symlink to $1 at $HOME/$1
 # Use route() by lib/dotenv.shrc
 chain_home() {
   local src="$(route "$1" || true)"
@@ -86,7 +70,7 @@ chain_home() {
   $LINKER $src $link
 }
 
-# Alternative of symlink2()
+# Create symlink to $1 at $2
 # Use route() by lib/dotenv.shrc
 chain() {
   local src="$(route "$1" || true)"
