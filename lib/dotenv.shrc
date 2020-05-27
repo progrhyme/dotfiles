@@ -4,6 +4,12 @@ if [ -z "${DOTS_ROOT:-}" ]; then
   return 1
 fi
 
+# Prevent loading multiple times
+if [ -n "${_DOTENV_LIB_LOADED:-}" ]; then
+  return
+fi
+_DOTENV_LIB_LOADED=1
+
 if [ -z "${THE_ENV_DIR:-}" -a -n "$MYENV" ]; then
   THE_ENV_DIR="${DOTS_ROOT}/envs/${MYENV}"
 fi
