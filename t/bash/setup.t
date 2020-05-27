@@ -1,16 +1,16 @@
 # bash
 
-t_diag "Tests for lib/setup-common.bashrc"
+t_diag "Tests for lib/setup.bashrc"
 
 t::group "REPO_DIR" ({
-  . lib/setup-common.bashrc
+  . lib/setup.bashrc
   t_is "$(pwd)" "${REPO_DIR}" "REPO_DIR is this directory"
 })
 
 t::group "init_base_dir" ({
   mkdir -p tmp/src
 
-  . lib/setup-common.bashrc
+  . lib/setup.bashrc
 
   REPO_DIR=tmp/src
   DOTS_ROOT=tmp/dst

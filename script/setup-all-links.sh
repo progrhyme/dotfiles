@@ -3,7 +3,7 @@
 set -eu
 
 REPO_DIR=$(cd $(dirname $0)/.. && pwd)
-source "${REPO_DIR}/lib/setup-common.bashrc"
+source "${REPO_DIR}/lib/setup.bashrc"
 
 case $SHELL in
   */bash)

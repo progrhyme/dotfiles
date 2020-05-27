@@ -17,7 +17,7 @@ script/setup-vim-env.sh
 Makes symlinks to `*shrc.d/` shell script libraries in `~/.{ba,z}shrc.d/`
 according to `$SHELL` variable.  
 Destination directory is defined by variable `$CUSTOM_RC_DIR` in
-`lib/setup-common.bashrc`.
+`lib/setup.bashrc`.
 
 # Shell Configuration
 ## peco functions

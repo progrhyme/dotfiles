@@ -3,7 +3,7 @@
 set -euo pipefail
 
 REPO_DIR=$(cd $(dirname $0)/.. && pwd)
-source "${REPO_DIR}/lib/setup-common.bashrc"
+source "${REPO_DIR}/lib/setup.bashrc"
 
 SRCS=(
   "shrc.d/tmux.shrc"

@@ -3,7 +3,7 @@
 set -euo pipefail
 
 REPO_DIR=$(cd $(dirname $0)/.. && pwd)
-source "${REPO_DIR}/lib/setup-common.bashrc"
+source "${REPO_DIR}/lib/setup.bashrc"
 
 VIM_DIR=${HOME}/.vim
 TARGETS=(.vimrc .vim/ftplugin .vim/ftdetect .vim/template)
