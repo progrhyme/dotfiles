@@ -1,7 +1,7 @@
 # bash
 
 REPO_DIR="${REPO_DIR:-$(cd $(dirname $BASH_SOURCE)/.. && pwd)}"
-DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
+DOTS_ROOT="${DOTS_ROOT:-$HOME/.dotfiles}"
 
 CUSTOM_RC_DIR=""
 case "$SHELL" in
@@ -14,13 +14,13 @@ case "$SHELL" in
 esac
 
 # symlink
-LINKER="$DOTFILES/submodule/bash-links/links --verbose"
+LINKER="$DOTS_ROOT/submodule/bash-links/links --verbose"
 if [[ ${LINKS_FORCE:-} ]]; then
   LINKER="${LINKER} --force"
 fi
 
 init_base_dir() {
-  $LINKER $REPO_DIR $DOTFILES
+  $LINKER $REPO_DIR $DOTS_ROOT
 }
 
 mk_custom_rc_dir() {
@@ -36,7 +36,7 @@ init() {
 }
 
 symlink() {
-  local src="${DOTFILES}/${1}";
+  local src="${DOTS_ROOT}/${1}";
   local link="${HOME}/$1"
   local _dir="${1%/*}"
   if [[ "$_dir" != "$1" ]]; then
@@ -47,7 +47,7 @@ symlink() {
 }
 
 symlink2() {
-  local src=$DOTFILES/$1
+  local src=$DOTS_ROOT/$1
   local link=$2
   $LINKER $src $link
 }

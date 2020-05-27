@@ -1,4 +1,4 @@
-export DOTFILES="${HOME}/.dotfiles"
+export DOTS_ROOT="${HOME}/.dotfiles"
 
 # Change directory color when type 'ls --color'. See man dircolors.
 export LSCOLORS=Exfxcxdxbxegedabagacad

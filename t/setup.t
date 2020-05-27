@@ -13,11 +13,11 @@ t::group "init_base_dir" ({
   . lib/setup-common.bashrc
 
   REPO_DIR=tmp/src
-  DOTFILES=tmp/dst
+  DOTS_ROOT=tmp/dst
 
   init_base_dir
-  t_symlink "$DOTFILES"
-  t_is "$REPO_DIR" "$(readlink $DOTFILES)" "$DOTFILES -> $REPO_DIR"
+  t_symlink "$DOTS_ROOT"
+  t_is "$REPO_DIR" "$(readlink $DOTS_ROOT)" "$DOTS_ROOT -> $REPO_DIR"
 
   rm -rf tmp
 })

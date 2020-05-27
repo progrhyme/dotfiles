@@ -1,4 +1,4 @@
-export DOTFILES="${HOME}/.dotfiles"
+export DOTS_ROOT="${HOME}/.dotfiles"
 
 if [[ -r $HOME/.bash_profile.extra ]]; then
   source $HOME/.bash_profile.extra

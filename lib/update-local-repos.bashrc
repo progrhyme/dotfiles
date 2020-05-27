@@ -2,7 +2,7 @@
 # Library for common/bin/update-local-repos
 
 TMPD=$HOME/tmp/$PROG
-DOTFILES=${DOTFILES:-$HOME/.dotfiles}
+DOTS_ROOT=${DOTS_ROOT:-$HOME/.dotfiles}
 
 # lock & unlock
 LOCK_DIR=$TMPD/lock.d
@@ -50,7 +50,7 @@ update_local_env() {
 update_clam_modules() {
   tsfile="$TMPD/clam-modules.$YMD"
   if [[ $FORCE || ! -e $tsfile ]]; then
-    clam -r $DOTFILES/etc/Clamfile
+    clam -r $DOTS_ROOT/etc/Clamfile
     rm -f "$TMPD/clam-modules.*"
     touch $tsfile
   fi

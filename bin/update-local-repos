@@ -27,7 +27,7 @@ get_lock || exit
 cleanup_tmpdir
 
 if [[ -z ${LOCAL_REPOS:-} ]]; then
-  LOCAL_REPOS=($DOTFILES)
+  LOCAL_REPOS=($DOTS_ROOT)
 fi
 
 for repo_branch_txt in ${LOCAL_REPOS[@]}; do

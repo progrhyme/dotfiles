@@ -4,9 +4,9 @@ __load_files=(
 
 case "$SHELL" in
   */bash )
-    source "$DOTFILES/bashrc.d/google-cloud-sdk.bashrc";;
+    source "$DOTS_ROOT/bashrc.d/google-cloud-sdk.bashrc";;
   */zsh )
-    source "$DOTFILES/zshrc.d/google-cloud-sdk.zshrc";;
+    source "$DOTS_ROOT/zshrc.d/google-cloud-sdk.zshrc";;
   * )
     ;;
 esac

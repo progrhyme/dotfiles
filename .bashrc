@@ -1,4 +1,4 @@
-PATH="$DOTFILES/bin:$PATH"
+PATH="$DOTS_ROOT/bin:$PATH"
 
 # Load bashrc files
 if [[ -d $HOME/.bashrc.d ]]; then

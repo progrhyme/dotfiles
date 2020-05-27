@@ -1,4 +1,4 @@
-PATH="$DOTFILES/bin:$PATH"
+PATH="$DOTS_ROOT/bin:$PATH"
 
 # Load zshrc files
 if [[ -d $HOME/.zshrc.d ]]; then
