@@ -4,7 +4,7 @@ set -euo pipefail
 
 PROG=$(basename $0)
 base_dir="$(cd $(dirname $0)/..; pwd)"
-source "${base_dir}/lib/dotenv.bashrc"
+source "${base_dir}/lib/dotenv.shrc"
 require lib/$PROG.bashrc
 
 FORCE=
