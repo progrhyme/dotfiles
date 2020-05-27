@@ -1,6 +1,6 @@
 # bash
 
-echo "Tests for lib/setup-common.bashrc"
+t_diag "Tests for lib/setup-common.bashrc"
 
 t::group "REPO_DIR" ({
   . lib/setup-common.bashrc
@@ -15,7 +15,7 @@ t::group "init_base_dir" ({
   REPO_DIR=tmp/src
   DOTS_ROOT=tmp/dst
 
-  init_base_dir
+  link_dots_root
   t_symlink "$DOTS_ROOT"
   t_is "$REPO_DIR" "$(readlink $DOTS_ROOT)" "$DOTS_ROOT -> $REPO_DIR"
 

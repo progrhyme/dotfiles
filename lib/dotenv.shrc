@@ -1,45 +1,47 @@
-# bash
+# sh
 
-DOTS_ROOT="${DOTS_ROOT:-$(cd $(dirname $BASH_SOURCE)/.. && pwd)}"
-if [[ -z "${THE_ENV_DIR:-}" && -n "$MYENV" ]]; then
+if [ -z "${DOTS_ROOT:-}" ]; then
+  return 1
+fi
+
+if [ -z "${THE_ENV_DIR:-}" -a -n "$MYENV" ]; then
   THE_ENV_DIR="${DOTS_ROOT}/envs/${MYENV}"
 fi
 
 # Load target shell scripts
 require() {
-  local target="$1"
-  local count=0
+  count=0
 
-  if [[ -r "${DOTS_ROOT}/${target}" ]]; then
-    count=$((++count))
-    source "${DOTS_ROOT}/${target}"
+  if [ -r "${DOTS_ROOT}/$1" ]; then
+    count=$((count+1))
+    . "${DOTS_ROOT}/$1"
   fi
 
-  if [[ -n "${THE_ENV_DIR:-}" ]]; then
-    if [[ -r "${THE_ENV_DIR}/${target}" ]]; then
-      count=$((++count))
-      source "${THE_ENV_DIR}/${target}"
+  if [ -n "${THE_ENV_DIR:-}" ]; then
+    if [ -r "${THE_ENV_DIR}/$1" ]; then
+      count=$((count+1))
+      . "${THE_ENV_DIR}/$1"
     fi
   fi
 
-  if ((count == 0)); then
+  if [ $count -eq 0 ]; then
+    unset count
     return 1
   fi
+  unset count
 }
 
 # Print path of target resource file
 route() {
-  local target="$1"
-
-  if [[ -n "${THE_ENV_DIR:-}" ]]; then
-    if [[ -e "${THE_ENV_DIR}/${target}" ]]; then
-      echo "${THE_ENV_DIR}/${target}"
+  if [ -n "${THE_ENV_DIR:-}" ]; then
+    if [ -e "${THE_ENV_DIR}/$1" ]; then
+      echo "${THE_ENV_DIR}/$1"
       return
     fi
   fi
 
-  if [[ -e "${DOTS_ROOT}/${target}" ]]; then
-    echo "${DOTS_ROOT}/${target}"
+  if [ -e "${DOTS_ROOT}/$1" ]; then
+    echo "${DOTS_ROOT}/$1"
     return
   fi
 

@@ -14,12 +14,12 @@ case "$SHELL" in
 esac
 
 # symlink
-LINKER="$DOTS_ROOT/submodule/bash-links/links --verbose"
+LINKER="$REPO_DIR/submodule/bash-links/links --verbose"
 if [[ ${LINKS_FORCE:-} ]]; then
   LINKER="${LINKER} --force"
 fi
 
-init_base_dir() {
+link_dots_root() {
   $LINKER $REPO_DIR $DOTS_ROOT
 }
 
@@ -31,7 +31,7 @@ mk_custom_rc_dir() {
 }
 
 init() {
-  init_base_dir
+  link_dots_root
   mk_custom_rc_dir
 }
 

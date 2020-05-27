@@ -36,7 +36,7 @@ install_dein() {
 
 # ============================================================
 # Main
-init_base_dir
+link_dots_root
 
 # create ~/.vim
 mkdir -p ${VIM_DIR};
@@ -53,4 +53,4 @@ else
   install_neobundle
 fi
 
-exit 0
+exit
