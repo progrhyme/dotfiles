@@ -23,7 +23,7 @@ case "$SHELL" in
     ;;
 esac
 
-init
+bootstrap
 
 for rc in ${SRCS[@]}; do
   _rc=${rc##*/}

@@ -30,7 +30,7 @@ mk_custom_rc_dir() {
   fi
 }
 
-init() {
+bootstrap() {
   link_dots_root
   mk_custom_rc_dir
 }

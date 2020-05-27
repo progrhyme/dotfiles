@@ -30,10 +30,11 @@ DOT_FILES=(
 
 # ============================================================
 # Main
-init
+
+bootstrap
 
 for df in ${DOT_FILES[@]}; do
   symlink $df
 done
 
-exit 0
+exit
