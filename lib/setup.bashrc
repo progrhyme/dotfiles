@@ -86,29 +86,3 @@ chain() {
   fi
   $LINKER $src $link
 }
-
-# ============================================================
-# Set up dotfiles
-
-link_dotfiles() {
-  local df
-  for df in "${DOT_FILES[@]}"; do
-    chain_home $df
-  done
-}
-
-link_custom_shrc_files() {
-  local rc _rc
-  for rc in "${CUSTOM_RC_FILES[@]}"; do
-    _rc="${rc##*/}"
-    chain "$rc" "${CUSTOM_RC_DIR}/${_rc}"
-  done
-}
-
-setup_dotfiles() {
-  link_dotfiles
-  link_custom_shrc_files
-}
-
-# /Set up dotfiles
-# ============================================================

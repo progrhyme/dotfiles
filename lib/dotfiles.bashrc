@@ -1,4 +1,6 @@
 # bash
+#
+# Assume lib/setup.bashrc is loaded beforehand
 
 DOT_FILES=(
   .config/git/ignore
@@ -32,3 +34,25 @@ case $SHELL in
     ;;
   *) ;;
 esac
+
+# Use chain_home() by lib/setup.bashrc
+link_dotfiles() {
+  local df
+  for df in "${DOT_FILES[@]}"; do
+    chain_home $df
+  done
+}
+
+# Use chain() by lib/setup.bashrc
+link_custom_shrc_files() {
+  local rc _rc
+  for rc in "${CUSTOM_RC_FILES[@]}"; do
+    _rc="${rc##*/}"
+    chain "$rc" "${CUSTOM_RC_DIR}/${_rc}"
+  done
+}
+
+setup_dotfiles() {
+  link_dotfiles
+  link_custom_shrc_files
+}
