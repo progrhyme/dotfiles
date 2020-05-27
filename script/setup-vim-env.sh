@@ -3,7 +3,8 @@
 set -euo pipefail
 
 REPO_DIR=$(cd $(dirname $0)/.. && pwd)
-source "${REPO_DIR}/lib/setup.bashrc"
+source "${REPO_DIR}/lib/dotenv.shrc"
+require lib/setup.bashrc
 
 VIM_DIR=${HOME}/.vim
 TARGETS=(.vimrc .vim/ftplugin .vim/ftdetect .vim/template)
@@ -15,6 +16,7 @@ NEOBUNDLE=${NEOBUNDLE:-}
 
 # ============================================================
 # Functions
+
 install_neobundle() {
   if [[ ! -d $NEOBUNDLE_DIR ]]; then
     local workrepo="${bundle_dir}/neobundle.vim"
@@ -36,6 +38,13 @@ install_dein() {
 
 # ============================================================
 # Main
+
+if [[ -n "${MYENV:-}" ]]; then
+  echo "##### MYENV: ${MYENV} #####"
+fi
+
+echo "[START] setup vim environment"
+
 link_dots_root
 
 # create ~/.vim
@@ -43,7 +52,7 @@ mkdir -p ${VIM_DIR};
 
 # create symlinks
 for t in ${TARGETS[@]}; do
-  symlink $t
+  chain_home $t
 done
 
 # Install Plugin Manager
@@ -52,5 +61,7 @@ if [[ -z "${NEOBUNDLE}" ]]; then
 else
   install_neobundle
 fi
+
+echo "[END] setup vim environment"
 
 exit
