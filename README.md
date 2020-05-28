@@ -6,18 +6,33 @@ To set up *dotfiles* into your home directory, execute following commands:
 git clone git@github.com:progrhyme/dotfiles.git 
 cd dotfiles
 git submodule update --init
-script/setup-all-links.sh
-script/set-custom-shrc-links.sh
+script/setup-dotfiles.sh
 script/setup-vim-env.sh
 ```
 
-# Setup Scripts
-## script/set-custom-shrc-links.sh
+You can set up customized shell environments locating additional shell scripts
+in `envs/$MYENV`.
 
-Makes symlinks to `*shrc.d/` shell script libraries in `~/.{ba,z}shrc.d/`
-according to `$SHELL` variable.  
-Destination directory is defined by variable `$CUSTOM_RC_DIR` in
-`lib/setup.bashrc`.
+```sh
+ln -s path/to/my-scripts envs/my-env
+export MYENV=my-env
+script/setup-shellenv.sh
+```
+
+Related Projects:
+
+- [progrhyme/myenv](https://github.com/progrhyme/myenv)
+... contains various CLI materials for Ubuntu, macOS etc., utilizing _dotfiles_.
+
+# Setup Scripts
+## script/setup-dotfiles.sh
+
+Most implementation is in `lib/dotfiles.bashrc`.
+In addition to making symbolic links to dotfiles under the root directory, this
+script does by default create symbolic links to scripts in `*shrc.d/` directory
+into `~/.{ba,z}shrc.d/` directory according to `$SETUP_SHELL` variable; falling
+back to `$SHELL` if `$SETUP_SHELL` is undefined.
+Destination directory is defined by variable `$CUSTOM_RC_DIR` in `lib/setup.bashrc`.
 
 # Shell Configuration
 ## peco functions
