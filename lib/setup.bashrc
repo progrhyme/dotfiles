@@ -21,7 +21,7 @@ esac
 
 # symlink
 LINKER="${REPO_DIR}/submodule/bash-links/links --verbose"
-if [[ ${LINKS_FORCE:-} ]]; then
+if [[ -n "${LINKS_FORCE:-}" ]]; then
   LINKER="${LINKER} --force"
 fi
 

@@ -1,5 +1,7 @@
 # bash
 
+BASHER_ROOT="$HOME/.basher"
+
 BASHER_BUNDLE_PACKAGES=(
   progrhyme/git-wraps
   progrhyme/bash-git-push-carefully

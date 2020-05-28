@@ -16,8 +16,10 @@ CUSTOM_RC_FILES=(
   "shrc.d/tmux.shrc"
 )
 
-case $SHELL in
-  */bash)
+SETUP_SHELL=${SETUP_SHELL:-${SHELL##*/}}
+
+case "${SETUP_SHELL}" in
+  "bash" )
     DOT_FILES+=(
       .bash_profile
       .bashrc
@@ -28,7 +30,7 @@ case $SHELL in
       "bashrc.d/10-load-git-completion.bashrc"
     )
     ;;
-  */zsh)
+  "zsh" )
     DOT_FILES+=(.zshenv .zshrc)
     CUSTOM_RC_FILES+=("zshrc.d/peco.zshrc")
     ;;
