@@ -8,6 +8,7 @@ BASHER_BUNDLE_PACKAGES=(
   progrhyme/toolbox
   progrhyme/gcloud-prompt
   progrhyme/sh-pathctl
+  b4b4r07/enhancd
 )
 
 basher_bundle_install() {
