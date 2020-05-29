@@ -2,11 +2,6 @@
 
 REPO_DIR="${REPO_DIR:-$(cd $(dirname $BASH_SOURCE)/.. && pwd)}"
 DOTS_ROOT="${DOTS_ROOT:-$HOME/.dotfiles}"
-DOTS_ENV_DIR="${DOTS_ENV_DIR:-}"
-if [[ -z "${DOTS_ENV_DIR}" && -n "${DOTS_ENV:-}" && -e "${REPO_DIR}/envs/$DOTS_ENV" ]]; then
-  DOTS_ENV_DIR="${REPO_DIR}/envs/$DOTS_ENV"
-fi
-
 DOTSH_DIR="${DOTSH_DIR:-${REPO_DIR}/submodule/dot-sh}"
 source "${DOTSH_DIR}/dot.sh"
 
