@@ -2,9 +2,9 @@
 
 REPO_DIR="${REPO_DIR:-$(cd $(dirname $BASH_SOURCE)/.. && pwd)}"
 DOTS_ROOT="${DOTS_ROOT:-$HOME/.dotfiles}"
-THE_ENV_DIR="${THE_ENV_DIR:-}"
-if [[ -z "${THE_ENV_DIR}" && -n "${MYENV:-}" && -e "${REPO_DIR}/envs/$MYENV" ]]; then
-  THE_ENV_DIR="${REPO_DIR}/envs/$MYENV"
+DOTS_ENV_DIR="${DOTS_ENV_DIR:-}"
+if [[ -z "${DOTS_ENV_DIR}" && -n "${DOTS_ENV:-}" && -e "${REPO_DIR}/envs/$DOTS_ENV" ]]; then
+  DOTS_ENV_DIR="${REPO_DIR}/envs/$DOTS_ENV"
 fi
 
 source "${REPO_DIR}/lib/dotenv.shrc"

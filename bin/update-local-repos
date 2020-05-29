@@ -76,7 +76,7 @@ B<update-local-repos> - Update repositories
 
 =head1 SYNOPSYS
 
-    env MYENV=ubuntu-desktop update-local-repos [-f|--force]
+    env DOTS_ENV=ubuntu-desktop update-local-repos [-f|--force]
 
 =head1 DESCRIPTION
 

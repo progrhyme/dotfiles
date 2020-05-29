@@ -7,8 +7,8 @@ source "${REPO_DIR}/lib/dotenv.shrc"
 require lib/setup.bashrc
 require lib/dotfiles.bashrc
 
-if [[ -n "${MYENV:-}" ]]; then
-  echo "##### MYENV: ${MYENV} #####"
+if [[ -n "${DOTS_ENV:-}" ]]; then
+  echo "##### DOTS_ENV: ${DOTS_ENV} #####"
 fi
 
 echo "[START] setup dotfiles"
@@ -30,7 +30,7 @@ B<setup-dotfiles.sh> - Script to set up dotfiles
 
 =head1 SYNOPSYS
 
-    MYENV=<target env> script/setup-dotfiles.sh
+    DOTS_ENV=<target env> script/setup-dotfiles.sh
 
 =head1 DESCRIPTION
 

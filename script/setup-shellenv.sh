@@ -12,17 +12,17 @@ help() {
   exit 1
 }
 
-if [[ -z "$MYENV" ]]; then
-  echo -e "[error] \$MYENV is not set!\n"
+if [[ -z "$DOTS_ENV" ]]; then
+  echo -e "[error] \$DOTS_ENV is not set!\n"
   help
 fi
 
-echo "[START] setup $MYENV"
+echo "[START] setup $DOTS_ENV"
 
 bootstrap
 setup_shellenv
 
-echo "[END] setup $MYENV"
+echo "[END] setup $DOTS_ENV"
 
 exit
 
@@ -36,7 +36,7 @@ B<setup-shellenv.sh> - Script to set up a shell environment
 
 =head1 SYNOPSYS
 
-    MYENV=<target env> script/setup-shellenv.sh
+    DOTS_ENV=<target env> script/setup-shellenv.sh
 
 =head1 DESCRIPTION
 

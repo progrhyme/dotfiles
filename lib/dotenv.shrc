@@ -10,8 +10,8 @@ if [ -n "${_DOTENV_LIB_LOADED:-}" ]; then
 fi
 _DOTENV_LIB_LOADED=1
 
-if [ -z "${THE_ENV_DIR:-}" -a -n "$MYENV" ]; then
-  THE_ENV_DIR="${DOTS_ROOT}/envs/${MYENV}"
+if [ -z "${DOTS_ENV_DIR:-}" -a -n "$DOTS_ENV" ]; then
+  DOTS_ENV_DIR="${DOTS_ROOT}/envs/${DOTS_ENV}"
 fi
 
 # Load target shell scripts
@@ -26,10 +26,10 @@ require() {
     . "${DOTS_ROOT}/$1"
   fi
 
-  if [ -n "${THE_ENV_DIR:-}" ]; then
-    if [ -r "${THE_ENV_DIR}/$1" ]; then
+  if [ -n "${DOTS_ENV_DIR:-}" ]; then
+    if [ -r "${DOTS_ENV_DIR}/$1" ]; then
       _dotenv_require_count=$((_dotenv_require_count+1))
-      . "${THE_ENV_DIR}/$1"
+      . "${DOTS_ENV_DIR}/$1"
     fi
   fi
 
@@ -40,9 +40,9 @@ require() {
 
 # Print path of target resource file
 route() {
-  if [ -n "${THE_ENV_DIR:-}" ]; then
-    if [ -e "${THE_ENV_DIR}/$1" ]; then
-      echo "${THE_ENV_DIR}/$1"
+  if [ -n "${DOTS_ENV_DIR:-}" ]; then
+    if [ -e "${DOTS_ENV_DIR}/$1" ]; then
+      echo "${DOTS_ENV_DIR}/$1"
       return
     fi
   fi

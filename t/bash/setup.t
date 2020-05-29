@@ -7,28 +7,28 @@ t::group "REPO_DIR" ({
   t_is "$(pwd)" "${REPO_DIR}" "REPO_DIR is this directory"
 })
 
-t::group "THE_ENV_DIR" ({
-  t::group "Without MYENV" ({
-    unset MYENV THE_ENV_DIR
+t::group "DOTS_ENV_DIR" ({
+  t::group "Without DOTS_ENV" ({
+    unset DOTS_ENV DOTS_ENV_DIR
     source lib/setup.bashrc
-    t_blank "$THE_ENV_DIR" "THE_ENV_DIR is blank"
+    t_blank "$DOTS_ENV_DIR" "DOTS_ENV_DIR is blank"
   })
 
-  t::group "With MYENV = __test__" ({
-    MYENV=__test__
-    unset THE_ENV_DIR
+  t::group "With DOTS_ENV = __test__" ({
+    DOTS_ENV=__test__
+    unset DOTS_ENV_DIR
 
-    t::group "When THE_ENV_DIR exists" ({
-      mkdir -p envs/$MYENV
+    t::group "When DOTS_ENV_DIR exists" ({
+      mkdir -p envs/$DOTS_ENV
       source lib/setup.bashrc
-      t_is "$THE_ENV_DIR" "${REPO_DIR}/envs/$MYENV" "THE_ENV_DIR = ${REPO_DIR}/envs/$MYENV"
-      rm -rf envs/$MYENV
+      t_is "$DOTS_ENV_DIR" "${REPO_DIR}/envs/$DOTS_ENV" "DOTS_ENV_DIR = ${REPO_DIR}/envs/$DOTS_ENV"
+      rm -rf envs/$DOTS_ENV
     })
 
     # Fails because "lib/dotenv.shrc" is loaded in "lib/setup.bahsrc"
-    #t::group "When THE_ENV_DIR doesn't exist" ({
+    #t::group "When DOTS_ENV_DIR doesn't exist" ({
       #source lib/setup.bashrc
-      #t_blank "$THE_ENV_DIR" "THE_ENV_DIR is blank"
+      #t_blank "$DOTS_ENV_DIR" "DOTS_ENV_DIR is blank"
     #})
   })
 })

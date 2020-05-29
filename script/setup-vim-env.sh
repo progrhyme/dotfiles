@@ -39,8 +39,8 @@ install_dein() {
 # ============================================================
 # Main
 
-if [[ -n "${MYENV:-}" ]]; then
-  echo "##### MYENV: ${MYENV} #####"
+if [[ -n "${DOTS_ENV:-}" ]]; then
+  echo "##### DOTS_ENV: ${DOTS_ENV} #####"
 fi
 
 echo "[START] setup vim environment"

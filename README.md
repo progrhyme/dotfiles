@@ -11,11 +11,11 @@ script/setup-vim-env.sh
 ```
 
 You can set up customized shell environments locating additional shell scripts
-in `envs/$MYENV`.
+in `envs/$DOTS_ENV`.
 
 ```sh
 ln -s path/to/my-scripts envs/my-env
-export MYENV=my-env
+export DOTS_ENV=my-env
 script/setup-shellenv.sh
 ```
 
