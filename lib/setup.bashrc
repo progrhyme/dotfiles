@@ -7,7 +7,7 @@ if [[ -z "${DOTS_ENV_DIR}" && -n "${DOTS_ENV:-}" && -e "${REPO_DIR}/envs/$DOTS_E
   DOTS_ENV_DIR="${REPO_DIR}/envs/$DOTS_ENV"
 fi
 
-source "${REPO_DIR}/lib/dotenv.shrc"
+source "${REPO_DIR}/submodule/dot-sh/dot.sh"
 
 CUSTOM_RC_DIR=""
 case "$SHELL" in
@@ -55,7 +55,7 @@ bootstrap() {
 }
 
 # Create symlink to $1 at $HOME/$1
-# Use route() by lib/dotenv.shrc
+# Use route() by dot.sh
 chain_home() {
   local src="$(route "$1" || true)"
   if [[ -z "$src" ]]; then
@@ -71,7 +71,7 @@ chain_home() {
 }
 
 # Create symlink to $1 at $2
-# Use route() by lib/dotenv.shrc
+# Use route() by dot.sh
 chain() {
   local src="$(route "$1" || true)"
   if [[ -z "$src" ]]; then

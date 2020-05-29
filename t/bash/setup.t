@@ -25,7 +25,7 @@ t::group "DOTS_ENV_DIR" ({
       rm -rf envs/$DOTS_ENV
     })
 
-    # Fails because "lib/dotenv.shrc" is loaded in "lib/setup.bahsrc"
+    # Fails because "dot.sh" is loaded in "lib/setup.bahsrc"
     #t::group "When DOTS_ENV_DIR doesn't exist" ({
       #source lib/setup.bashrc
       #t_blank "$DOTS_ENV_DIR" "DOTS_ENV_DIR is blank"

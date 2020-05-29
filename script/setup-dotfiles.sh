@@ -3,7 +3,7 @@
 set -eu
 
 REPO_DIR=$(cd $(dirname $0)/.. && pwd)
-source "${REPO_DIR}/lib/dotenv.shrc"
+source "${REPO_DIR}/submodule/dot-sh/dot.sh"
 require lib/setup.bashrc
 require lib/dotfiles.bashrc
 

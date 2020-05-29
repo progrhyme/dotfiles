@@ -3,9 +3,7 @@
 set -euo pipefail
 
 REPO_DIR=$(cd $(dirname $0)/.. && pwd)
-source "${REPO_DIR}/lib/dotenv.shrc"
-require lib/setup.bashrc
-
+source "${REPO_DIR}/submodule/dot-sh/dot.sh"
 VIM_DIR=${HOME}/.vim
 TARGETS=(.vimrc .vim/ftplugin .vim/ftdetect .vim/template)
 

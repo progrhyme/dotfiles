@@ -1,18 +1,9 @@
 .PHONY: test clean shove
 
-SHELLS := sh bash zsh dash ksh
-SHOVE  := vendor/shove/bin/shove
+SHOVE := vendor/shove/bin/shove
 
 test: shove
 	@$(SHOVE) -r t/bash -v -s bash
-	@for sh in $(SHELLS); do \
-		if [ -x "$$(which $$sh)" ]; then \
-			$(SHOVE) -r t/all -v -s $$sh; \
-		else \
-			echo "Skip $$sh"; \
-			continue; \
-		fi \
-	done
 
 clean:
 	rm -rf vendor

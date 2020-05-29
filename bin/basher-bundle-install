@@ -3,7 +3,7 @@
 set -euo pipefail
 
 base_dir="$(cd $(dirname $0)/..; pwd)"
-source "${base_dir}/lib/dotenv.shrc"
+source "${base_dir}/submodule/dot-sh/dot.sh"
 require lib/basher.bashrc
 
 basher_bundle_install
