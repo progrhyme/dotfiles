@@ -3,7 +3,8 @@
 set -euo pipefail
 
 REPO_DIR=$(cd $(dirname $0)/.. && pwd)
-source "${REPO_DIR}/submodule/dot-sh/dot.sh"
+DOTSH_DIR="${DOTSH_DIR:-${REPO_DIR}/submodule/dot-sh}"
+source "${DOTSH_DIR}/dot.sh"
 require lib/setup.bashrc
 require lib/shellenv.bashrc
 

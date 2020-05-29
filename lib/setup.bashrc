@@ -7,7 +7,8 @@ if [[ -z "${DOTS_ENV_DIR}" && -n "${DOTS_ENV:-}" && -e "${REPO_DIR}/envs/$DOTS_E
   DOTS_ENV_DIR="${REPO_DIR}/envs/$DOTS_ENV"
 fi
 
-source "${REPO_DIR}/submodule/dot-sh/dot.sh"
+DOTSH_DIR="${DOTSH_DIR:-${REPO_DIR}/submodule/dot-sh}"
+source "${DOTSH_DIR}/dot.sh"
 
 CUSTOM_RC_DIR=""
 case "$SHELL" in

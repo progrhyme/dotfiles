@@ -4,7 +4,8 @@ set -euo pipefail
 
 PROG=$(basename $0)
 base_dir="$(cd $(dirname $0)/..; pwd)"
-source "${base_dir}/submodule/dot-sh/dot.sh"
+DOTSH_DIR="${DOTSH_DIR:-${base_dir}/submodule/dot-sh}"
+source "${DOTSH_DIR}/dot.sh"
 require lib/$PROG.bashrc
 
 FORCE=
