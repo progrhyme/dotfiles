@@ -11,6 +11,9 @@ fi
 
 HUGO_PORT=${HUGO_PORT:-1313}
 HUGO_OPTIONS="${HUGO_OPTIONS:-} --port ${HUGO_PORT}"
+if [[ -n "${HUGO_CONFIG:-}" ]]; then
+  HUGO_OPTIONS="--config ${HUGO_CONFIG} ${HUGO_OPTIONS}"
+fi
 MODE=
 
 if [[ -z "${HUGO_PROJECT_DIR:-}" ]]; then
@@ -44,7 +47,7 @@ elif netstat -an | grep LISTEN | grep "\b${HUGO_PORT}\b" &>/dev/null; then
 fi
 
 cd $HUGO_PROJECT_DIR
-nohup hugo server ${HUGO_OPTIONS[@]} &>> /tmp/run-hugo-server.$(date +'%Y%m%d').log &
+nohup hugo server ${HUGO_OPTIONS} &>> /tmp/run-hugo-server.$(date +'%Y%m%d').log &
 
 exit
 
