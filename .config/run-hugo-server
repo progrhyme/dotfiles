@@ -1,0 +1,4 @@
+HUGO_PROJECT_DIR=$HOME/my/repos/tech-notes
+HUGO_PORT=1313
+HUGO_OPTIONS=--disableFastRender
+HUGO_CONFIG=config.toml,config-local.toml

@@ -4,6 +4,7 @@
 
 DOT_FILES=(
   .config/git/ignore
+  .config/run-hugo-server
   .gemrc
   .gitconfig
   .perltidyrc
