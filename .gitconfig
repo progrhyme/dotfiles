@@ -1,3 +1,16 @@
+[core]
+	editor = vim
+[user]
+	name  = progrhyme
+	email = progrhyme@gmail.com
+[push]
+	default = simple
+[pull]
+	rebase = true
+[help]
+	autocorrect = 1
+[color]
+	ui = true
 [alias]
 	st      = status
 	df      = diff
@@ -14,16 +27,5 @@
 	unstage = reset HEAD
 	tree    = log --graph --date=relative --pretty='%C(auto)%h%d (%ad) %Cgreen%an%Creset : %s'
 	graph   = log --oneline --graph --decorate
-[user]
-	name  = progrhyme
-	email = progrhyme@gmail.com
-[push]
-	default = simple
-[help]
-	autocorrect = 1
-[color]
-	ui = true
-[core]
-	editor = vim
 [include]
 	path = .gitconfig.local
