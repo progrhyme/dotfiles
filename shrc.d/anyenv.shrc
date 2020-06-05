@@ -1,6 +1,4 @@
 # bash / zsh
 if [[ -d $HOME/.anyenv ]]; then
-  if ! (echo $PATH | grep $HOME/.anyenv >/dev/null 2>&1); then
-    eval "$(anyenv init -)"
-  fi
+  eval "$(anyenv init -)"
 fi
