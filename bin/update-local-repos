@@ -47,7 +47,7 @@ for repo_branch_txt in ${LOCAL_REPOS[@]}; do
   fi
 
   cd $repo
-  git pull origin $branch
+  git pull origin $branch || continue
   if [[ -f .gitmodules ]]; then
     git submodule update --init
   fi
