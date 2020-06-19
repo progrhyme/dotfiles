@@ -9,5 +9,4 @@ require lib/dotfiles.bashrc
 setup_shellenv() {
   # Defined in $DOTS_ROOT/lib/{dotfiles, shellenv}.bashrc
   setup_dotfiles
-  setup_basher
 }

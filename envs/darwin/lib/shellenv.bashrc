@@ -12,7 +12,6 @@ SETUP_SHELL=${SETUP_SHELL:-zsh}
 common_setup() {
   # Defined in $DOTS_ROOT/lib/{dotfiles, shellenv}.bashrc
   setup_dotfiles
-  setup_basher
 }
 
 # Should be overridden by the environment
