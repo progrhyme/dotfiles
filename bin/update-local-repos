@@ -65,6 +65,10 @@ if command -v basher &>/dev/null; then
   check_basher_outdated
 fi
 
+if command -v shelp &>/dev/null; then
+  update_shelp_packages
+fi
+
 exit
 
 : <<'__EOF__'

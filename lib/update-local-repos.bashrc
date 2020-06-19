@@ -69,3 +69,14 @@ check_basher_outdated() {
     touch $tsfile
   fi
 }
+
+# update shelp packages
+update_shelp_packages() {
+  local tsfile="${TMPD}/shelp.${YMD}"
+  if [[ $FORCE || ! -e $tsfile ]]; then
+    shelp bundle
+    shelp upgrade
+    rm -f "$TMPD/shelp.*"
+    touch $tsfile
+  fi
+}

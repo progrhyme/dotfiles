@@ -1,0 +1,7 @@
+packages:
+- from: progrhyme/git-wraps
+- from: progrhyme/bash-git-push-carefully
+- from: progrhyme/toolbox
+- from: progrhyme/gcloud-prompt
+- from: progrhyme/sh-pathctl
+- from: b4b4r07/enhancd

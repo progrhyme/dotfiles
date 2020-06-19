@@ -1,0 +1,14 @@
+# shelp
+if command -v shelp &> /dev/null; then
+  eval "$(shelp init -)"
+
+  # load libraries
+  if [[ -n "${_SHELP_INCLUDES:-}" ]]; then
+    for _inc in "${_SHELP_INCLUDES[@]}"; do
+      _pkg=${_inc%:*}
+      _sh=${_inc#*:}
+      include $_pkg $_sh
+    done
+    unset _inc _pkg _sh
+  fi
+fi
