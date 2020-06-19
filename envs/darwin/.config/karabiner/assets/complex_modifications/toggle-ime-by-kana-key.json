@@ -1,0 +1,48 @@
+{
+  "title": "Toggle IME by Kana Key",
+  "rules": [
+    {
+      "description": "JISキーボードの全角/半角キーをIMEのON/OFF切り替えキーに変換。",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "lang1" },
+          "to": [
+            {
+              "select_input_source": {
+                "input_source_id": "^com\\.google\\.inputmethod\\.Japanese\\.base$"
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                { "language": "en" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "lang1" },
+          "to": [
+            {
+              "select_input_source": {
+                "input_source_id": "^com\\.google\\.inputmethod\\.Japanese\\.Roman$"
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                { "language": "ja" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

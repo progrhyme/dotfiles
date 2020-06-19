@@ -1,7 +1,4 @@
 /tmp/
 
-# Custom environments of dotfiles
-/envs/*
-
 # 3rd party tools
 /vendor/

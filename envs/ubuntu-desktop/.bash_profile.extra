@@ -1,0 +1,12 @@
+export DOTS_ENV=ubuntu-desktop
+MYENV_ROOT=$HOME/.myenv
+
+PS1="\[\e[0;31m\]\u:\[\e[0m\]\[\e[0;34m\]\w%\[\e[0m\] "
+
+# git completion by dpkg
+__git_completion="/usr/share/bash-completion/completions/git"
+if [[ -f $__git_completion ]]; then
+  GIT_COMPLETION_FILE=$__git_completion
+fi
+
+unset __git_completion
