@@ -1,7 +1,7 @@
 # load common shrc
 source $DOTS_ROOT/shrc.d/load_apps.shrc
-_BASHER_INCLUDES=(progrhyme/gcloud-prompt:gcloud-prompt.sh)
-source $DOTS_ROOT/shrc.d/load_basher.shrc
+_SHELP_INCLUDES=(gcloud-prompt:gcloud-prompt.sh)
+source $DOTS_ROOT/shrc.d/load_shelp.shrc
 source $DOTS_ROOT/shrc.d/aliases
 
 # disable by default

@@ -1,12 +1,13 @@
 # load common shrc
 source $DOTS_ROOT/shrc.d/load_apps.shrc
-_BASHER_INCLUDES=(progrhyme/sh-pathctl:pathctl.shrc)
-source $DOTS_ROOT/shrc.d/load_basher.shrc
-source $DOTS_ROOT/shrc.d/aliases
-source $DOTS_ROOT/bashrc.d/load_enhancd.bashrc
 
 ## custom PATH
 PATH=".:$HOME/bin:$PATH"
+
+_SHELP_INCLUDES=(sh-pathctl:pathctl.shrc)
+source $DOTS_ROOT/shrc.d/load_shelp.shrc
+source $DOTS_ROOT/shrc.d/aliases
+source $DOTS_ROOT/bashrc.d/load_enhancd.bashrc
 
 # remove duplicate PATH
 pathctl_uniq
