@@ -2,8 +2,7 @@
 #
 # Assume lib/setup.bashrc is loaded beforehand
 
-DOT_FILES=(
-)
+DOT_FILES=()
 
 DOT_OMIT_FILES=(
   config/git/ignore
@@ -25,10 +24,10 @@ SETUP_SHELL=${SETUP_SHELL:-${SHELL##*/}}
 
 case "${SETUP_SHELL}" in
   "bash" )
-    DOT_FILES+=(
-      .bash_profile
-      .bashrc
-      .git-completion.bash
+    DOT_OMIT_FILES+=(
+      bash_profile
+      bashrc
+      git-completion.bash
     )
     CUSTOM_RC_FILES+=(
       "bashrc.d/peco.bashrc"
@@ -36,7 +35,7 @@ case "${SETUP_SHELL}" in
     )
     ;;
   "zsh" )
-    DOT_FILES+=(.zshenv .zshrc)
+    DOT_OMIT_FILES+=(zshenv zshrc)
     CUSTOM_RC_FILES+=("zshrc.d/peco.zshrc")
     ;;
   *) ;;
