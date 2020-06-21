@@ -3,14 +3,17 @@
 # Assume lib/setup.bashrc is loaded beforehand
 
 DOT_FILES=(
-  .config/git/ignore
-  .config/run-hugo-server
-  .gemrc
-  .gitconfig
-  .perltidyrc
-  .rubocop.yml
-  .tmux.conf
-  .vimrc
+)
+
+DOT_OMIT_FILES=(
+  config/git/ignore
+  config/run-hugo-server
+  gemrc
+  gitconfig
+  perltidyrc
+  rubocop.yml
+  tmux.conf
+  vimrc
 )
 
 CUSTOM_RC_FILES=(
@@ -38,11 +41,15 @@ case "${SETUP_SHELL}" in
   *) ;;
 esac
 
-# Use chain_home() by lib/setup.bashrc
+# Use chain() & chain_home() by lib/setup.bashrc
 link_dotfiles() {
-  local df
+  local df dst
   for df in "${DOT_FILES[@]}"; do
     chain_home $df
+  done
+  for df in "${DOT_OMIT_FILES[@]}"; do
+    dst="${HOME}/.$df"
+    chain $df $dst
   done
 }
 
