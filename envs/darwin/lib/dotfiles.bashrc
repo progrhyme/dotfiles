@@ -2,22 +2,22 @@
 
 SETUP_SHELL=${SETUP_SHELL:-zsh}
 
-DOT_FILES+=(
-  .Brewfile
-  .config/karabiner/assets/complex_modifications/toggle-ime-by-kana-key.json
+DOT_OMIT_FILES+=(
+  Brewfile
+  config/karabiner/assets/complex_modifications/toggle-ime-by-kana-key.json
 )
 
 case "${SETUP_SHELL}" in
   "bash" )
-    DOT_FILES+=(
-      .bash_profile.extra
-      .bashrc.d/00-darwin.bashrc
+    DOT_OMIT_FILES+=(
+      bash_profile.extra
+      bashrc.d/00-darwin.bashrc
     )
     ;;
   "zsh"  )
-    DOT_FILES+=(
-      .zshenv.extra
-      .zshrc.d/00-darwin.zshrc
+    DOT_OMIT_FILES+=(
+      zshenv.extra
+      zshrc.d/00-darwin.zshrc
     )
     ;;
   * )
