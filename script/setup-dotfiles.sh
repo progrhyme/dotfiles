@@ -2,9 +2,12 @@
 
 set -eu
 
+eval "$(shelp init -)"
+
 REPO_DIR=$(cd $(dirname $0)/.. && pwd)
-DOTSH_DIR="${DOTSH_DIR:-${REPO_DIR}/submodule/dot-sh}"
-source "${DOTSH_DIR}/dot.sh"
+DOTS_ROOT=${DOTS_ROOT:-"$(cd $(dirname $0)/.. && pwd)"}
+include dot-sh dot.sh
+
 require lib/setup.bashrc
 require lib/dotfiles.bashrc
 

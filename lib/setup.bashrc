@@ -1,9 +1,9 @@
 # bash
-
+#
+# Assume dot-sh/dot.sh is loaded beforehand
 REPO_DIR="${REPO_DIR:-$(cd $(dirname $BASH_SOURCE)/.. && pwd)}"
-DOTS_ROOT="${DOTS_ROOT:-$HOME/.dotfiles}"
-DOTSH_DIR="${DOTSH_DIR:-${REPO_DIR}/submodule/dot-sh}"
-source "${DOTSH_DIR}/dot.sh"
+echo "REPO_DIR: $REPO_DIR"
+dots_root="$HOME/.dotfiles"
 
 CUSTOM_RC_DIR=""
 case "$SHELL" in
@@ -16,7 +16,11 @@ case "$SHELL" in
 esac
 
 # symlink
-LINKER="${REPO_DIR}/submodule/bash-links/links --verbose"
+if ! command -v links &>/dev/null; then
+  echo "Error! links is not installed!" >&2
+  return 1
+fi
+LINKER="links --verbose"
 if [[ -n "${LINKS_FORCE:-}" ]]; then
   LINKER="${LINKER} --force"
 fi
@@ -34,7 +38,7 @@ mkdir_p() {
 }
 
 link_dots_root() {
-  $LINKER $REPO_DIR $DOTS_ROOT
+  $LINKER $REPO_DIR $dots_root
 }
 
 mk_custom_rc_dir() {

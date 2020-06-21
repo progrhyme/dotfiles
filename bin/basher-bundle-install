@@ -2,9 +2,10 @@
 
 set -euo pipefail
 
-base_dir="$(cd $(dirname $0)/..; pwd)"
-DOTSH_DIR="${DOTSH_DIR:-${base_dir}/submodule/dot-sh}"
-source "${DOTSH_DIR}/dot.sh"
+eval "$(shelp init -)"
+
+DOTS_ROOT=${DOTS_ROOT:-"$(cd $(dirname $0)/.. && pwd)"}
+include dot-sh dot.sh
 require lib/basher.bashrc
 
 basher_bundle_install

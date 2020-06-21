@@ -2,11 +2,15 @@
 
 set -euo pipefail
 
+eval "$(shelp init -)"
+
 REPO_DIR=$(cd $(dirname $0)/.. && pwd)
-DOTSH_DIR="${DOTSH_DIR:-${REPO_DIR}/submodule/dot-sh}"
-source "${DOTSH_DIR}/dot.sh"
+DOTS_ROOT=${DOTS_ROOT:-"$(cd $(dirname $0)/.. && pwd)"}
+include dot-sh dot.sh
+require lib/setup.bashrc
+
 VIM_DIR=${HOME}/.vim
-TARGETS=(.vimrc .vim/ftplugin .vim/ftdetect .vim/template)
+TARGETS=(.vim/ftplugin .vim/ftdetect .vim/template)
 
 # for Plugin Managers
 NEOBUNDLE_DIR=${VIM_DIR}/bundle

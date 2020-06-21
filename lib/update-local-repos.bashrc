@@ -1,8 +1,7 @@
 # bash
-# Library for common/bin/update-local-repos
+# Library for bin/update-local-repos
 
 TMPD=$HOME/tmp/$PROG
-DOTS_ROOT=${DOTS_ROOT:-$HOME/.dotfiles}
 
 # lock & unlock
 LOCK_DIR=$TMPD/lock.d

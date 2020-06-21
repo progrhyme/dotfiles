@@ -2,10 +2,12 @@
 
 set -euo pipefail
 
+eval "$(shelp init -)"
+
+DOTS_ROOT=${DOTS_ROOT:-"$(cd $(dirname $0)/.. && pwd)"}
+include dot-sh dot.sh
+
 PROG=$(basename $0)
-base_dir="$(cd $(dirname $0)/..; pwd)"
-DOTSH_DIR="${DOTSH_DIR:-${base_dir}/submodule/dot-sh}"
-source "${DOTSH_DIR}/dot.sh"
 require lib/$PROG.bashrc
 
 FORCE=
@@ -57,7 +59,7 @@ done
 
 update_local_env
 
-if command -v clam $>/dev/null; then
+if command -v clam &>/dev/null; then
   update_clam_modules
 fi
 
