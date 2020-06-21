@@ -4,6 +4,6 @@
 [submodule "submodule/bash-links"]
 	path = submodule/bash-links
 	url = git@github.com:progrhyme/bash-links.git
-[submodule "submodule/aisle"]
+[submodule "submodule/dot-sh"]
 	path = submodule/dot-sh
 	url = git@github.com:progrhyme/dot-sh.git
