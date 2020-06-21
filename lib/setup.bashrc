@@ -2,7 +2,6 @@
 #
 # Assume dot-sh/dot.sh is loaded beforehand
 REPO_DIR="${REPO_DIR:-$(cd $(dirname $BASH_SOURCE)/.. && pwd)}"
-echo "REPO_DIR: $REPO_DIR"
 dots_root="$HOME/.dotfiles"
 
 CUSTOM_RC_DIR=""
