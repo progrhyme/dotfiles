@@ -5,3 +5,5 @@ packages:
 - from: progrhyme/gcloud-prompt
 - from: progrhyme/sh-pathctl
 - from: b4b4r07/enhancd
+- from: progrhyme/bash-links
+- from: progrhyme/dot-sh
