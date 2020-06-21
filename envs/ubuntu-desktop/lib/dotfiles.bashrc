@@ -2,10 +2,6 @@
 
 SETUP_SHELL=${SETUP_SHELL:-zsh}
 
-DOT_FILES+=(
-  .shelp/config.yml
-)
-
 case "${SETUP_SHELL}" in
   "bash" )
     DOT_FILES+=(

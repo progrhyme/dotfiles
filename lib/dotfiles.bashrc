@@ -14,6 +14,7 @@ DOT_OMIT_FILES=(
   rubocop.yml
   tmux.conf
   vimrc
+  shelp/config.yml
 )
 
 CUSTOM_RC_FILES=(
