@@ -44,7 +44,8 @@ if which peco >& /dev/null && [[ -t 1 ]]; then
     for repo in ${__PECO_SRCH_REPOS[@]}; do
       if [[ -d $repo ]]; then
         _dirs+=(
-          $(\find ${repo} -maxdepth ${__PECO_SRCH_REPOS_MAXDEPTH} -type d -a \! -regex '.*\.git.*')
+          $(\find ${repo} -maxdepth ${__PECO_SRCH_REPOS_MAXDEPTH} \
+            -type d -a \! -regex '.*\/\(.git\|submodule\|node_modules\).*')
         )
       fi
     done
@@ -55,7 +56,10 @@ if which peco >& /dev/null && [[ -t 1 ]]; then
     local _files repo
     for repo in ${__PECO_SRCH_REPOS[@]}; do
       if [[ -d $repo ]]; then
-        _files+=( $(\find ${repo} -maxdepth ${__PECO_SRCH_REPOS_MAXDEPTH} \! -regex '.*\.git.*') )
+        _files+=(
+          $(\find ${repo} -maxdepth ${__PECO_SRCH_REPOS_MAXDEPTH} \
+              \! -regex '.*\/\(.git\|submodule\|node_modules\)/.*')
+        )
       fi
     done
     local l=$(for _f in ${_files[@]}; do echo $_f; done | peco)
