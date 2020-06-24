@@ -12,7 +12,7 @@
 [color]
 	ui = true
 [alias]
-	st      = status
+	st      = status --short
 	df      = diff
 	dfc     = diff --cached
 	ci      = commit -v
