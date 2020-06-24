@@ -41,24 +41,24 @@ case "${SETUP_SHELL}" in
   *) ;;
 esac
 
-# Use chain() & chain_home() by lib/setup.bashrc
+# Use link_b2a() & link_home() by dot-sh
 link_dotfiles() {
   local df dst
   for df in "${DOT_FILES[@]}"; do
-    chain_home $df
+    link_home $df
   done
   for df in "${DOT_OMIT_FILES[@]}"; do
     dst="${HOME}/.$df"
-    chain $df $dst
+    link_b2a $df $dst
   done
 }
 
-# Use chain() by lib/setup.bashrc
+# Use link_b2a() by lib/setup.bashrc
 link_custom_shrc_files() {
   local rc _rc
   for rc in "${CUSTOM_RC_FILES[@]}"; do
     _rc="${rc##*/}"
-    chain "$rc" "${CUSTOM_RC_DIR}/${_rc}"
+    link_b2a "$rc" "${CUSTOM_RC_DIR}/${_rc}"
   done
 }
 

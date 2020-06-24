@@ -55,7 +55,7 @@ mkdir -p ${VIM_DIR};
 
 # create symlinks
 for t in ${TARGETS[@]}; do
-  chain_home $t
+  link_home $t
 done
 
 # Install Plugin Manager
