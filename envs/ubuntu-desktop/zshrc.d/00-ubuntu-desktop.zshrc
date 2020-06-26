@@ -176,15 +176,3 @@ if [[ -d $HOME/.init.d ]]; then
     fi
   done
 fi
-
-# Load dirs on file cache to make peco faster
-if [[ -z "${_INIT_PECO_SRCH:-}" ]]; then
-  _INIT_PECO_SRCH=1
-  for repo in ${__PECO_SRCH_REPOS[@]}; do
-    if [[ -d $repo ]]; then
-      \find ${repo} -maxdepth ${__PECO_SRCH_REPOS_MAXDEPTH} \
-          -type d -a \! -regex '.*\/\(.git\|submodule\|node_modules\).*' &>/dev/null &
-    fi
-  done
-  unset repo
-fi
