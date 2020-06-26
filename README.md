@@ -1,31 +1,39 @@
 # dotfiles
 
+Personal dotfiles including scripts and config files for some shell environments.
+
+# Prerequisites
+
+- https://github.com/progrhyme/shelp/
+
+And below packages should be installed by shelp:
+
+```sh
+shelp install progrhyme/dot-sh
+```
+
+# Setup
+
 To set up *dotfiles* into your home directory, execute following commands:
 
 ```sh
-git clone git@github.com:progrhyme/dotfiles.git 
+git clone git@github.com:progrhyme/dotfiles.git
 cd dotfiles
 git submodule update --init
-script/setup-dotfiles.sh
+
+export DOTS_ENV=<choose one in envs/ dir>
+script/setup-shellenv.sh
 script/setup-vim-env.sh
 ```
 
-You can set up customized shell environments locating additional shell scripts
-in `envs/$DOTS_ENV`.
-
-```sh
-ln -s path/to/my-scripts envs/my-env
-export DOTS_ENV=my-env
-script/setup-shellenv.sh
-```
-
-Related Projects:
+# Related Projects
 
 - [progrhyme/myenv](https://github.com/progrhyme/myenv)
 ... contains various CLI materials for Ubuntu, macOS etc., utilizing _dotfiles_.
 
-# Setup Scripts
-## script/setup-dotfiles.sh
+# Contents
+## Setup Scripts
+### script/setup-dotfiles.sh
 
 Most implementation is in `lib/dotfiles.bashrc`.
 In addition to making symbolic links to dotfiles under the root directory, this
@@ -34,8 +42,8 @@ into `~/.{ba,z}shrc.d/` directory according to `$SETUP_SHELL` variable; falling
 back to `$SHELL` if `$SETUP_SHELL` is undefined.
 Destination directory is defined by variable `$CUSTOM_RC_DIR` in `lib/setup.bashrc`.
 
-# Shell Configuration
-## peco functions
+## Shell Configuration
+### peco functions
 
 `{ba,z}shrc.d/peco.{ba,z}shrc` defines some functions invoked by keyboard
 shortcuts using key binding system.
