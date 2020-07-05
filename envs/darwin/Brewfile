@@ -31,3 +31,4 @@ brew "zsh-kubectl-prompt"
 
 tap "progrhyme/taps"
 brew "shelp"
+brew "binq"
