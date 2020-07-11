@@ -3,6 +3,9 @@ MYENV_ROOT=$HOME/.myenv
 
 PS1="\[\e[0;31m\]\u:\[\e[0m\]\[\e[0;34m\]\w%\[\e[0m\] "
 
+# binq
+source $DOTS_ROOT/shrc.d/binq.shrc
+
 # git completion by dpkg
 __git_completion="/usr/share/bash-completion/completions/git"
 if [[ -f $__git_completion ]]; then

@@ -1,0 +1,2 @@
+export BINQ_SERVER="https://progrhy.me/binq-index"
+export BINQ_BIN_DIR=$HOME/bin

@@ -4,3 +4,6 @@ MYENV_ROOT=$HOME/.myenv
 PS1="\[\e[0;31m\]\u:\[\e[0m\]\[\e[0;34m\]\w%\[\e[0m\] "
 
 GCLOUD_SDK_ROOT="${HOME}/vendor/google-cloud-sdk"
+
+# binq
+source $DOTS_ROOT/shrc.d/binq.shrc
