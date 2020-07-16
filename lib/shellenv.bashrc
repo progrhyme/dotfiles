@@ -61,3 +61,13 @@ setup_ohmyzsh() {
     fi
   done
 }
+
+install_binq() {
+  if [[ ! -x $HOME/bin/binq ]]; then
+  (
+    pushd $HOME/bin
+    curl -s "https://raw.githubusercontent.com/binqry/binq/master/get-binq.sh" | bash
+    popd
+  )
+  fi
+}
