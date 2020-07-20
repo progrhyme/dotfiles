@@ -29,6 +29,6 @@ brew "direnv"
 tap "superbrothers/zsh-kubectl-prompt"
 brew "zsh-kubectl-prompt"
 
-tap "progrhyme/taps"
+tap "progrhyme/tap"
 brew "shelp"
 brew "binq"
