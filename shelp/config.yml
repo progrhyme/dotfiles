@@ -4,5 +4,5 @@ packages:
 - from: progrhyme/toolbox
 - from: progrhyme/gcloud-prompt
 - from: progrhyme/sh-pathctl
-- from: b4b4r07/enhancd
+- from: b4b4r07/enhancd@v2.2.4
 - from: progrhyme/dot-sh
