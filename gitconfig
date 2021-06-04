@@ -22,6 +22,7 @@
 	plr     = pull --prune
 	bc      = branch-clean
 	bcp     = branch-clean --pull
+	pushf   = push --force-with-lease
 	rewrite = rebase -i
 	rw      = rebase -i
 	unstage = reset HEAD
