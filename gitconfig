@@ -1,5 +1,7 @@
 [core]
 	editor = vim
+[init]
+	defaultBranch = main
 [user]
 	name  = progrhyme
 	email = progrhyme@gmail.com
