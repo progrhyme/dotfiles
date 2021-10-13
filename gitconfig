@@ -27,6 +27,7 @@
 	pushf   = push --force-with-lease
 	rewrite = rebase -i
 	rw      = rebase -i
+	sw      = switch
 	unstage = reset HEAD
 	tree    = log --graph --date=relative --pretty='%C(auto)%h%d (%ad) %Cgreen%an%Creset : %s'
 	graph   = log --oneline --graph --decorate
