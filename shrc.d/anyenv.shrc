@@ -1,4 +1,5 @@
 # bash / zsh
 if [[ -d $HOME/.anyenv ]]; then
+  PATH=$PATH:$HOME/.anyenv/bin
   eval "$(anyenv init -)"
 fi
