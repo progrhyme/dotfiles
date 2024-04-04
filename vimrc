@@ -96,17 +96,9 @@ nnoremap <Leader>l :<C-u>call append(expand('.'), '')<Return>j
 noremap <Leader>pt <Esc>:%! perltidy<Return>
 noremap <Leader>ptv <Esc>:'<,'>! perltidy<Return>
 
-" ruby-align
-noremap <Leader>ra <Esc>:%! ruby-align<Return>
-noremap <Leader>rav <Esc>:'<,'>! ruby-align<Return>
-
 " US keyboard
 "nnoremap ; :
 "nnoremap : ;
-
-" NOTE:
-"  Additional plugin-related key mappings are defined in plugins.toml loaded
-"  by dein later in this .vimrc
 
 " ----------------------------------------
 " use templates
@@ -124,40 +116,59 @@ command Gorun execute "!go run %"
 au BufWritePre *.go Fmt
 
 " ----------------------------------------
-" dein.vim / START
-if &compatible
-  set nocompatible " Be iMproved
-endif
+" vim-plug / START
+call plug#begin()
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/unite-outline'
+Plug 'leafcage/yankround.vim'
+Plug 'vim-scripts/Align'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-endwise'
+Plug 'junegunn/vim-easy-align'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'kana/vim-operator-user'
+Plug 'kana/vim-operator-replace'
+Plug 'ervandew/supertab'
+Plug 'cespare/vim-toml'
+call plug#end()
 
-let s:dein_dir = expand('~/.vim/dein')
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-let s:config_dir = expand('~/.dotfiles/vim')
+" unite.vim
+let g:unite_split_rule = 'botright'
 
-" Required:
-execute 'set runtimepath^=' . s:dein_repo_dir
+" unite-outline
+nnoremap <Leader>u <ESC>:Unite -vertical -winwidth=40 outline<Return>
 
-" Required:
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
+" yankround.vim
+nmap p <Plug>(yankround-p)
+xmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap gp <Plug>(yankround-gp)
+xmap gp <Plug>(yankround-gp)
+nmap gP <Plug>(yankround-gP)
+nmap <C-k> <Plug>(yankround-prev)
+nmap <C-j> <Plug>(yankround-next)
+nnoremap <Leader>y <ESC>:Unite yankround<Return>
 
-  call dein#load_toml(s:config_dir . '/dein-plugins.toml', {'lazy': 0})
-  call dein#load_toml(s:config_dir . '/dein-lazy-plugins.toml', {'lazy': 1})
+" Align
+let g:Align_xstrlen=3
 
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
+" vim-easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
-" Required:
-filetype plugin indent on
-syntax enable
+" ctrlp.vim
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_user_command =
+  \ ['.git', 'cd %s && git ls-files -co --exclude-standard']
+nnoremap <Leader>/ <ESC>:CtrlPLine<Return>
 
-" If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
+" vim-operator-replace
+nmap <Space> <Plug>(operator-replace)
 
-" dein.vim / END
+" supertab
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" vim-plug / END
 " ----------------------------------------
 
 highlight clear StatusLine

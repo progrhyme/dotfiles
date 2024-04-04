@@ -12,30 +12,15 @@ require lib/setup.bashrc
 VIM_DIR=${HOME}/.vim
 TARGETS=(.vim/ftplugin .vim/ftdetect .vim/template)
 
-# for Plugin Managers
-NEOBUNDLE_DIR=${VIM_DIR}/bundle
-DEIN_DIR=${VIM_DIR}/dein
-NEOBUNDLE=${NEOBUNDLE:-}
-
 # ============================================================
 # Functions
 
-install_neobundle() {
-  if [[ ! -d $NEOBUNDLE_DIR ]]; then
-    local workrepo="${bundle_dir}/neobundle.vim"
-    mkdir -p $NEOBUNDLE_DIR
-    git clone https://github.com/Shougo/neobundle.vim $workrepo
-  fi
-}
-
-install_dein() {
-  if [[ ! -d $DEIN_DIR ]]; then
-    mkdir -p $DEIN_DIR
-    (
-      cd $DEIN_DIR
-      curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-      sh ./installer.sh $DEIN_DIR
-    )
+install_vimplug() {
+  if [[ -f ${VIM_DIR}/autoload/plug.vim ]]; then
+    echo "[OK] Already installed vim-plug"
+  else
+    curl -fLo ${VIM_DIR}/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   fi
 }
 
@@ -59,11 +44,7 @@ for t in ${TARGETS[@]}; do
 done
 
 # Install Plugin Manager
-if [[ -z "${NEOBUNDLE}" ]]; then
-  install_dein
-else
-  install_neobundle
-fi
+install_vimplug
 
 echo "[END] setup vim environment"
 
