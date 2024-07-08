@@ -1,0 +1,5 @@
+# bash / zsh
+if [[ -d ${HOME}/.nodenv ]]; then
+  PATH=$HOME/.nodenv/bin:$PATH
+  eval "$(nodenv init -)"
+fi

@@ -1,4 +1,5 @@
 source $DOTS_ROOT/shrc.d/cargo.shrc
 source $DOTS_ROOT/shrc.d/anyenv.shrc
 source $DOTS_ROOT/shrc.d/nodebrew.shrc
+source $DOTS_ROOT/shrc.d/nodenv.shrc
 source $DOTS_ROOT/shrc.d/golang.shrc
