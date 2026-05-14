@@ -18,6 +18,8 @@ case "${SETUP_SHELL}" in
     DOT_OMIT_FILES+=(
       zshenv.extra
       zshrc.d/00-darwin.zshrc
+      zshrc.d/interactive/10-interactive.zshrc
+      zshrc.d/interactive/90-startup.zshrc
     )
     ;;
   * )
