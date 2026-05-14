@@ -1,0 +1,6 @@
+# antigravity
+
+if [[ -d "$HOME/.antigravity/antigravity" ]]; then
+  export PATH="$PATH:$HOME/.antigravity/antigravity/bin"
+  alias agy="antigravity"
+fi

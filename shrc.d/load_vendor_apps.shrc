@@ -11,6 +11,8 @@ case "$SHELL" in
     ;;
 esac
 
+source "$DOTS_ROOT/shrc.d/antigravity.shrc"
+
 for __src in "${__load_files[@]}"; do
   [[ -f "${__src}" ]] && . "${__src}"
 done
