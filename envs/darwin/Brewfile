@@ -25,6 +25,8 @@ brew "hugo"
 brew "colordiff"
 brew "zsh-syntax-highlighting"
 brew "direnv"
+brew "nodebrew"
+brew "pwgen"
 
 tap "superbrothers/zsh-kubectl-prompt"
 brew "zsh-kubectl-prompt"
