@@ -14,3 +14,7 @@
 
 ### direnv ###
 \.envrc
+
+### Claude Code ###
+**/.claude/settings.local.json
+**/.claude/launch.json
