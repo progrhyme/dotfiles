@@ -10,7 +10,7 @@ if which peco >/dev/null 2>&1 && [[ -t 1 ]]; then
     else
       tac="tail -r"
     fi
-    BUFFER=$(\history -n 1 | eval $tac | peco)
+    BUFFER=$(fc -rln 1 | awk '!a[$0]++' | peco)
     CURSOR=$#BUFFER
     zle clear-screen
   }
